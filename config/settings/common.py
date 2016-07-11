@@ -102,6 +102,21 @@ DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
     'default': env.db('DATABASE_URL', default='postgres:///cookiecutter_website_project'),
 }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DATABASE_NAME', default='mazefx$website'),
+        'USER': env('DATABASE_USER', default='MazeFX-Admin'),
+        'PASSWORD': env('DATABASE_PASSWORD', default='stsfUjrgpwHtty181%17'),
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+
+
+
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 

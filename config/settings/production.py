@@ -218,3 +218,13 @@ ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 
 # Your production stuff: Below this line define 3rd party library settings
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DATABASE_NAME', default='mazefx$website'),
+        'USER': env('DATABASE_USER', default='MazeFX-Admin'),
+        'PASSWORD': env('DATABASE_PASSWORD', default='stsfUjrgpwHtty181%17'),
+        'HOST': 'MazeFX.mysql.pythonanywhere-services.com',
+    }
+}
