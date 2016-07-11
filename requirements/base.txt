@@ -46,12 +46,8 @@ pytz==2016.4
 django-redis==4.4.3
 redis>=2.10.0
 
-
-
-
+# Compressor tool
 django_compressor==2.0
 
-
-
-
-# Your custom requirements go here
+# Obey the testing Goat!
+selenium

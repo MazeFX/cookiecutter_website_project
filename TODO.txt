@@ -1,0 +1,37 @@
+
+TODO - Keep track of project goals and direction
+
+
+Description of the different task tags used in this project.
+------------------------------------------------------------
+
+* GIFS  - General in file structure
+
+* DOCS  - Write some documentation
+
+* TODO  - A normal todo task
+
+* FIXME - Something is broken here (description of error occurse, maybe logfile)
+
+* IDEA  - When I put a bull and a frog together.. will I get a bullfrog??
+
+Goal list.
+----------
+
+##########################################################################
+#                                                                        #
+#   ###  ###  #### #   #   ##### #   #  #####    ###   ###   ###  #####  #
+#  #   # #  # #     # #      #   #   #  #       #     #   # #   #   #    #
+#  #   # ###  ###    #       #   #####  ####    # ##  #   # #####   #    #
+#  #   # #  # #      #       #   #   #  #       #   # #   # #   #   #    #
+#   ###  ###  ####   #       #   #   #  #####    ###   ###  #   #   #    #
+#                                                                        #
+##########################################################################
+
+* TODO - Create a function test for visiting the home website
+
+* TODO - add new task structure to all files when necessary
+
+* TODO - Build the docs with sphinx
+
+* TODO - Build media queries for mobile viewing
