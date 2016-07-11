@@ -22,26 +22,38 @@ Goal: Recruit a Django Developer who is enthusiastic about programming
 
 """
 
+import unittest
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-caps = DesiredCapabilities.FIREFOX
 
-# Tell the Python bindings to use Marionette.
-# This will not be necessary in the future,
-# when Selenium will auto-detect what remote end
-# it is talking to.
-caps["marionette"] = True
+class RecruiterVisitTest(unittest.TestCase):
 
-# Dave has received an job application with all the standard papers but what
-# intrigues is the url link send with the application.
-# Dave fires up a web browser and goes to the url.
-browser = webdriver.Firefox(capabilities=caps)
-browser.get('http://localhost:8000')
+    def setUp(self):
+        caps = DesiredCapabilities.FIREFOX
 
-# He notices that the page title and header mention IT
-assert 'IT' in browser.title
+        # Tell the Python bindings to use Marionette.
+        # This will not be necessary in the future,
+        # when Selenium will auto-detect what remote end
+        # it is talking to.
+        caps["marionette"] = True
+        self.browser = webdriver.Firefox(capabilities=caps)
 
-# TODO - Finish user story for functional test
+    def tearDown(self):
+        self.browser.quit()
 
-browser.quit()
+    def test_browsing_the_recruiter_page(self):
+
+        # Dave has received an job application with all the standard papers but what
+        # intrigues is the url link send with the application.
+        # Dave fires up a web browser and goes to the url.
+
+        self.browser.get('http://localhost:8000')
+
+        # He notices that the page title and header mention IT
+        self.assertIn('IT', self.browser.title)
+
+        # TODO - Finish user story for functional test
+
+if __name__ == '__main__':
+    unittest.main()
