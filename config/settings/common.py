@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Django settings for cookiecutter_website_project project.
+Django settings for website project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
@@ -12,8 +12,8 @@ from __future__ import absolute_import, unicode_literals
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # (cookiecutter_website_project/config/settings/common.py - 3 = cookiecutter_website_project/)
-APPS_DIR = ROOT_DIR.path('cookiecutter_website_project')
+ROOT_DIR = environ.Path(__file__) - 3  # (website/config/settings/common.py - 3 = website/)
+APPS_DIR = ROOT_DIR.path('website')
 
 env = environ.Env()
 
@@ -44,7 +44,7 @@ THIRD_PARTY_APPS = (
 # Apps specific for this project go here.
 LOCAL_APPS = (
     # custom users app
-    'cookiecutter_website_project.users.apps.UsersConfig',
+    'website.users.apps.UsersConfig',
     # Your stuff: custom apps go here
 )
 
@@ -66,7 +66,7 @@ MIDDLEWARE_CLASSES = (
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'cookiecutter_website_project.contrib.sites.migrations'
+    'sites': 'website.contrib.sites.migrations'
 }
 
 # DEBUG
@@ -100,7 +100,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db('DATABASE_URL', default='postgres:///cookiecutter_website_project'),
+    'default': env.db('DATABASE_URL', default='postgres:///website'),
 }
 
 DATABASES = {
@@ -229,8 +229,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-ACCOUNT_ADAPTER = 'cookiecutter_website_project.users.adapters.AccountAdapter'
-SOCIALACCOUNT_ADAPTER = 'cookiecutter_website_project.users.adapters.SocialAccountAdapter'
+ACCOUNT_ADAPTER = 'website.users.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'website.users.adapters.SocialAccountAdapter'
 
 # Custom user app defaults
 # Select the correct user model
