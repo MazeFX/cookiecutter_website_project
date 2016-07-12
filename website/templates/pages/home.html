@@ -1,3 +1,45 @@
-<html>
-    <title>IT's my future</title>
-</html>
+{# GIFS - Clean up file #}
+{# DOCS - Write some documentation and tags #}
+
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    IT's my future!
+{% endblock %}
+
+{% block meta %}
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/favicon-96x96.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+
+  <!-- OGP proprties for LinkedIn -->
+  <meta property="og:title" content="IT's my future!"/>
+  <meta property="og:image" content="{% static 'images/ogp_image.png' %}" />
+  <meta property="og:description" content="Mijn pagina voor een baan in de IT."/>
+  <meta property="og:url" content="//mazefx.pythonanywhere.com" />
+{% endblock %}
+
+{% block css-addin %}
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,italic|Vollkorn:700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}">
+    <link rel="stylesheet" type="text/css" href={% static 'css/style.css' %} />
+    <link rel="stylesheet" type="text/css" href={% static 'css/csshake-slow.min.css' %} />
+{% endblock %}
+
+{% block header %}
+    {% include 'pages/recruiter_header.html' %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h3>Dummy page header.</h3>
+  </div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'pages/main_footer.html' %}
+{% endblock %}
+
+{% block js-addin %}{% endblock %}

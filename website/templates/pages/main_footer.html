@@ -1,0 +1,38 @@
+{# GIFS - Clean up file #}
+{# DOCS - Write some documentation and tags #}
+
+<!--
+  File: main_footer.html
+  Creator: MazeFX
+  Date: 12-7-2016
+
+  Main footer for use in website.
+ -->
+
+{% load staticfiles %}
+<footer class="footer">
+  <div class="container">
+    <div class="row vertical-center">
+      <div class="col-lg-4">
+        <p class="text-muted">Links</p>
+        <ul ><a href="https://github.com/MazeFX/cookiecutter_website_project">Github repository</a></ul>
+        <ul ><a href="mailto:nickgeense@gmail.com">Email</a></ul>
+        <ul ><a href="http://nl.linkedin.com/in/thomasgeense">Linked In</a></ul>
+      </div>
+      <div class="col-lg-1">
+        <div class="footer-logo"><img src={% static 'images/github-logo.png' %} alt="Github" /></div>
+      </div>
+      <div class="col-lg-1">
+        <div class="footer-logo"><img src={% static 'images/django-logo.png' %} alt="Django" /></div>
+      </div>
+      <div class="col-lg-1">
+        <div class="footer-logo"><img src={% static 'images/12-factor.png' %} alt="12-factor" /></div>
+      </div>
+      <div class="col-lg-1">
+        <div class="footer-logo"><img src={% static 'images/bootstrap-logo.png' %} alt="Bootstrap" /></div>
+      </div>
+        <div class="col-lg-4">
+      </div>
+    </div>
+  </div>
+</footer>

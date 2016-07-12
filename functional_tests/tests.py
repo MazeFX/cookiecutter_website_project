@@ -4,7 +4,7 @@
 # DOCS - Write some documentation
 
 """
-File: functional_tests.py
+File: functional/tests.py
 Creator: MazeFX
 Date: 11-7-2016
 
@@ -22,12 +22,12 @@ Goal: Recruit a Django Developer who is enthusiastic about programming
 
 """
 
-import unittest
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
-class RecruiterVisitTest(unittest.TestCase):
+class RecruiterVisitTest(LiveServerTestCase):
 
     def setUp(self):
         caps = DesiredCapabilities.FIREFOX
@@ -48,15 +48,31 @@ class RecruiterVisitTest(unittest.TestCase):
         # intrigues is the url link send with the application.
         # Dave fires up a web browser and goes to the url.
 
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
-        # He notices that the page title and header mention IT
+        # He notices that the page title mentions IT
         self.assertIn('IT', self.browser.title)
+
+        # He sees a page header with a title
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('IT', header_text)
 
         # TODO - Finish user story for functional test
         self.fail('Finish the test!')
+
+    def test_layout_and_styling(self):
+
+        # Dave goes to the recruiter page
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024, 768)
+
+        # She notices the input box is nicely centered
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=5
+        )
 
 if __name__ == '__main__':
     unittest.main()
