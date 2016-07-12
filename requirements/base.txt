@@ -50,4 +50,7 @@ redis>=2.10.0
 django_compressor==2.0
 
 # Obey the testing Goat!
+# For working with firefox lastest version and selenium
+# apply geckodriver.exe renamed to wires.exe
+# See docs for explanation.
 selenium
