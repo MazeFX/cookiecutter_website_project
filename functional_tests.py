@@ -54,6 +54,7 @@ class RecruiterVisitTest(unittest.TestCase):
         self.assertIn('IT', self.browser.title)
 
         # TODO - Finish user story for functional test
+        self.fail('Finish the test!')
 
 if __name__ == '__main__':
     unittest.main()
