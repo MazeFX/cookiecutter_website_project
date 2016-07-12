@@ -46,6 +46,7 @@ LOCAL_APPS = (
     # custom users app
     'website.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'website.pages',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

@@ -52,6 +52,8 @@ class RecruiterVisitTest(unittest.TestCase):
 
         # He notices that the page title and header mention IT
         self.assertIn('IT', self.browser.title)
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('IT', header_text)
 
         # TODO - Finish user story for functional test
         self.fail('Finish the test!')
