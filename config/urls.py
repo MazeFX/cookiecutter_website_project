@@ -1,4 +1,20 @@
 # -*- coding: utf-8 -*-
+
+# GIFS - Clean up the file
+# DOCS - Write some documentation
+
+"""
+File: urls.py
+Creator: MazeFX
+Date: 11-7-2016
+
+Main url resolver as from cookiecutter-django.
+Added following resolver patterns:
+
+* ('/') -> pages.home_page
+"""
+
+
 from __future__ import unicode_literals
 
 from django.conf import settings
@@ -8,8 +24,10 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
+from website.pages import views as page_views
+
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
+    url(r'^$', page_views.home_page, name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
 
     # Django Admin, use {% url 'admin:index' %}

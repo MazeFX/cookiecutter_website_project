@@ -8,12 +8,15 @@ File: tests.py
 Creator: MazeFX
 Date: 12-7-2016
 
-Tests written for test website pages (home, about, contact, etc)
+Tests written for testing main website pages (home, about, contact, etc)
 """
 
+from django.core.urlresolvers import resolve
 from django.test import TestCase
+from website.pages.views import home_page
 
-class SmokeTest(TestCase):
+class HomePageTest(TestCase):
 
-    def test_bad_maths(self):
-        self.assertEqual(1 + 1, 3)
+    def test_root_url_resolves_to_home_page_view(self):
+        found = resolve('/')
+        self.assertEqual(found.func, home_page)
