@@ -50,7 +50,9 @@
   </head>
 
   <body>
-    {% block header %}{% endblock %}
+    {% block header %}
+      {% include 'pages/main_header.html' %}
+    {% endblock %}
 
     <div class="container">
 

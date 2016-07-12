@@ -53,8 +53,8 @@ class RecruiterVisitTest(LiveServerTestCase):
         # He notices that the page title mentions IT
         self.assertIn('IT', self.browser.title)
 
-        # He sees a page header with a title
-        header_text = self.browser.find_element_by_tag_name('h1').text
+        # He sees a page header with a title and particle animation
+        header_text = self.browser.find_element_by_id('header-title').text
         self.assertIn('IT', header_text)
 
         # TODO - Finish user story for functional test
@@ -74,5 +74,5 @@ class RecruiterVisitTest(LiveServerTestCase):
             delta=5
         )
 
-if __name__ == '__main__':
-    unittest.main()
+        # TODO - Finish user story for layout test
+        self.fail('Finish the test!')
