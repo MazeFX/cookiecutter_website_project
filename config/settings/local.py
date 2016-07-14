@@ -15,6 +15,7 @@ import os
 # DEBUG
 # ------------------------------------------------------------------------------
 DEBUG = env.bool('DJANGO_DEBUG', default=True)
+COMPRESS_ENABLED = env.bool('DJANGO_COMPRESSOR', default=True)
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
 # SECRET CONFIGURATION

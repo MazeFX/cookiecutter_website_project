@@ -247,6 +247,9 @@ AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 # ------------------------------------------------------------------------------
 INSTALLED_APPS += ("compressor", )
 STATICFILES_FINDERS += ("compressor.finders.CompressorFinder", )
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.template.TemplateFilter',
+]
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'

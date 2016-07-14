@@ -11,6 +11,8 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 /* Otherwise just put the config content (json): */
 
+{% load staticfiles %}
+
 particlesJS('particles-js',
 
     {
@@ -23,10 +25,10 @@ particlesJS('particles-js',
           }
         },
         "color": {
-          "value": "##92cab1"
+          "value": "#92cab1"
         },
         "shape": {
-          "type": "circle",
+          "type": "image",
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -35,7 +37,7 @@ particlesJS('particles-js',
             "nb_sides": 5
           },
           "image": {
-            "src": "img/github.svg",
+            "src": "{% static 'images/i-particle.png' %}",
             "width": 100,
             "height": 100
           }
@@ -51,12 +53,12 @@ particlesJS('particles-js',
           }
         },
         "size": {
-          "value": 3,
+          "value": 20,
           "random": true,
           "anim": {
             "enable": false,
             "speed": 40,
-            "size_min": 0.1,
+            "size_min": 10,
             "sync": false
           }
         },
