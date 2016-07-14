@@ -28,7 +28,7 @@ particlesJS('particles-js',
           "value": "#92cab1"
         },
         "shape": {
-          "type": "image",
+          "type": ["circle", "image"],
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -37,7 +37,8 @@ particlesJS('particles-js',
             "nb_sides": 5
           },
           "image": {
-            "src": "{% static 'images/i-particle.png' %}",
+            "src": ["{% static 'images/i-particle.png' %}",
+                    "{% static 'images/t-particle.png' %}"],
             "width": 100,
             "height": 100
           }
@@ -53,7 +54,7 @@ particlesJS('particles-js',
           }
         },
         "size": {
-          "value": 20,
+          "value": 15,
           "random": true,
           "anim": {
             "enable": false,
@@ -71,7 +72,7 @@ particlesJS('particles-js',
         },
         "move": {
           "enable": true,
-          "speed": 6,
+          "speed": 3,
           "direction": "none",
           "random": false,
           "straight": false,
