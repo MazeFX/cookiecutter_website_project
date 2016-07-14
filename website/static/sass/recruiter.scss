@@ -31,6 +31,42 @@ $dark-pink: #eed3d7;
 $red: #b94a48;
 
 ////////////////////////////////
+		//Page Element Layout//
+////////////////////////////////
+
+#recruiter-header {
+    height: 250px;
+    position: relative;
+}
+
+#header-title{
+}
+
+#header-title-begin{
+
+}
+
+#header-title-end{
+
+}
+
+////////////////////////////////
+  //General Layout functions//
+////////////////////////////////
+
+.align-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+////////////////////////////////
 		//Alerts//
 ////////////////////////////////
 

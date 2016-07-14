@@ -6,6 +6,21 @@
   CSS for recruiter page layout rendering.
   Compiled from scss using Ruby scss.
  */
+#recruiter-header {
+  height: 250px;
+  position: relative; }
+
+.align-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
 .alert-debug {
   background-color: #fff;
   border-color: #d6e9c6;

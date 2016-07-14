@@ -22,12 +22,12 @@ Goal: Recruit a Django Developer who is enthusiastic about programming
 
 """
 
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
-class RecruiterVisitTest(LiveServerTestCase):
+class RecruiterVisitTest(StaticLiveServerTestCase):
 
     def setUp(self):
         caps = DesiredCapabilities.FIREFOX
@@ -53,7 +53,10 @@ class RecruiterVisitTest(LiveServerTestCase):
         # He notices that the page title mentions IT
         self.assertIn('IT', self.browser.title)
 
-        # He sees a page header with a title and particle animation
+        # He sees a page header
+        header = self.browser.find_element_by_id('recruiter-header')
+        # with a title and particle animation
+        particles = self.browser.find_element_by_id('particles-js')
         header_text = self.browser.find_element_by_id('header-title').text
         self.assertIn('IT', header_text)
 
@@ -66,12 +69,12 @@ class RecruiterVisitTest(LiveServerTestCase):
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
 
-        # She notices the input box is nicely centered
-        inputbox = self.browser.find_element_by_id('id_new_item')
+        # She notices the header title is nicely centered
+        header_title = self.browser.find_element_by_id('header-title')
         self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] / 2,
+            header_title.location['x'] + header_title.size['width'] / 2,
             512,
-            delta=5
+            delta=8
         )
 
         # TODO - Finish user story for layout test

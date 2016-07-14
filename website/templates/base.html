@@ -1,7 +1,7 @@
 {# GIFS - Clean up file #}
 {# DOCS - Write some documentation and tags #}
 
-<!--
+{% comment %}
   File: base.html
   Creator: MazeFX
   Date: 12-7-2016
@@ -16,7 +16,7 @@
   * content    - For displaying the page content
   * javascript - For support in multiple javascript plugins
   * js-addin   - For page specific javascript
- -->
+{% endcomment %}
 
 {% load staticfiles i18n compress %}
 <!DOCTYPE html>
@@ -94,4 +94,3 @@
     {% endblock javascript %}
   </body>
 </html>
-
