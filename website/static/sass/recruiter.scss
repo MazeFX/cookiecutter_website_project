@@ -18,8 +18,11 @@
 
 // Layout colors
 
-
-
+$dark-purple: #571f4e;
+$light-purple: #5d5179;
+$blue: #4f759a;
+$green-grey: #92cab1;
+$green: #a2faa3;
 
 // Alert colors
 
@@ -34,36 +37,61 @@ $red: #b94a48;
 		//Page Element Layout//
 ////////////////////////////////
 
+// Header section
+
 #recruiter-header {
-    height: 250px;
-    position: relative;
+  height: 250px;
+  position: relative;
 }
 
 #header-title{
 }
 
-#header-title-begin{
+#header-title-begin,
+#header-title-end{
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: bold;
+}
 
+#header-title-begin{
+  font-size: 5em;
+  color: $green-grey;
 }
 
 #header-title-end{
-
+  font-size: 4em;
+  color: $dark-purple;
 }
+
+#particles-js{
+  position:absolute;
+  width: 100%;
+  height: 250px;
+  background-color: $white;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+// Body section
+
+// Footer section
 
 ////////////////////////////////
   //General Layout functions//
 ////////////////////////////////
 
 .align-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 ////////////////////////////////

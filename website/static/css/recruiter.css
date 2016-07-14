@@ -10,6 +10,29 @@
   height: 250px;
   position: relative; }
 
+#header-title-begin,
+#header-title-end {
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: bold; }
+
+#header-title-begin {
+  font-size: 5em;
+  color: #92cab1; }
+
+#header-title-end {
+  font-size: 4em;
+  color: #571f4e; }
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  background-color: #fff;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%; }
+
 .align-center {
   position: absolute;
   top: 50%;

@@ -18,11 +18,11 @@
   <meta property="og:title" content="IT's my future!"/>
   <meta property="og:image" content="{% static 'images/ogp_image.png' %}" />
   <meta property="og:description" content="Mijn pagina voor een baan in de IT."/>
-  <meta property="og:url" content="//mazefx.pythonanywhere.com" />
+  <meta property="og:url" content="//mazefx.pythonanywhere.com"/>
 {% endblock %}
 
-{% block css-addin %}
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,italic|Vollkorn:700,700italic' rel='stylesheet' type='text/css'>
+{% block css-addin %}<link href='https://fonts.googleapis.com/css?family=' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:700,400|Cabin' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href={% static 'css/recruiter.css' %} />
 {% endblock %}
 
@@ -40,4 +40,9 @@
     {% include 'pages/main_footer.html' %}
 {% endblock %}
 
-{% block js-addin %}{% endblock %}
+{% block js-addin %}
+  <script type="text/javascript" src={% static 'js/jquery.min.js' %}></script>
+  <script src={% static 'js/particles.js' %}></script>
+  <script src={% static 'js/app.js' %}></script>
+  <script type="text/javascript" src={% static 'js/recruiter.js' %}></script>
+{% endblock %}
