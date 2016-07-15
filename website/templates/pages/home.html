@@ -1,6 +1,8 @@
 {# GIFS - Clean up file #}
 {# DOCS - Write some documentation and tags #}
 
+{# TODO - set id behind class #}
+
 {% extends "base.html" %}
 {% load staticfiles %}
 
@@ -30,17 +32,215 @@
 {% endblock %}
 
 {% block content %}
-  <div class="page-header">
-    <h3>Dummy page header.</h3>
+  <div id="row-top" class="row main-row color-blue">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Allesdurver binnen de IT en nieuwe media, aangenaam!<br/>Hoe kan ik je helpen?
+          </h1>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-9">
+          <h3>Op zoek naar een tof bedrijf waar ik samen toffe dingen mee kan maken!</h3>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
   </div>
+
+  <div class="row main-row">
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="col-md-6">
+          <h2>Waarom IT?</h2>
+          <p>
+            Al vanaf jongs af aan ben ik gefascineerd door techniek en wilde
+            ik weten hoe alles in elkaar zat, ik bouwde mijn eerste computer
+            toen ik 10 was en vanaf dat moment was er een passie geboren.
+            Die passie is nooit meer weggegaan en heeft er voor gezorgd dat
+            ik veel heb mogen leren over developen en IT in de afgelopen
+            jaren. Nu heb ik besloten de stap te nemen om ook in mijn werk
+            mij bezig te gaan houden met mijn passie.
+          </p>
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive align-center" src={% static 'images/gears.png' %} alt="Gears" />
+        </div>
+      </div>
+      <div class="row row-eq-height">
+        <div class="col-md-6">
+          <img class="img-responsive align-center" src={% static 'images/sitting-man.png' %} alt="Gears" />
+        </div>
+        <div class="col-md-6">
+          <h2>Constante zelfontwikkeling</h2>
+          <p>
+            Naast de studie Informatica die ik aan de Universiteit Utrecht
+            heb gevolgd maar niet heb afgemaakt en een aantal recente certificaten
+            op het gebied van software development ben ik constant bezig
+            met het uitbreidenvan mijn kennis. Ik lees veel boeken over het vak,
+            houd mijzelf op de hoogte van nieuwe ontwikkelingen en maak in
+            mijn vrije tijd websites voor kennissen en vrienden. Zelf ben ik
+            een fan geworden van Python en steek hier graag mijn vrije uurtjes in.
+          </p>
+        </div>
+      </div>
+      <div class="row row-eq-height">
+        <div class="col-md-6">
+          <h2>Waar wil ik naar toe?</h2>
+          <p>
+            Ik wil elke dag blijven leren en groeien in mijn IT carriëre. Nu ik
+            de knoop heb doorgehakt om professioneel met mijn passie bezig te
+            zijn ben ik op zoek naar een tof bedrijf die mij kan begeleiden in
+            het werken in een IT omgeving. Ik zou graag willen meewerken aan
+            toffe projecten die technisch uitdagend zijn en die mij pushen om
+            constant te verbeteren. Ik ben er zeker van dat met begeleiding
+            ik snel een zelfstandig niveau kan bereiken. Wat denk je, past dat in
+            jullie bedrijf?
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img class="img-responsive align-center" src={% static 'images/arrow.png' %} alt="Gears" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row main-row color-grngry" id="row-middle">
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="col-md-6">
+          <div class="parallax-viewport align-center" id="parallax">
+            <!-- parallax layers -->
+            <div class="parallax-layer parallax-bg" style="width:650px; height:650px;">
+            </div>
+            <div class="parallax-layer" style="width:650px; height:650px;">
+              <img src={% static 'images/parallax-layer1.png' %} alt="" />
+            </div>
+            <div class="parallax-layer" style="width:500px; height:500px;">
+              <img src={% static 'images/parallax-layer2.png' %} alt="" />
+            </div>
+            <div class="parallax-layer" style="width:450px; height:450px;">
+              <img src={% static 'images/parallax-layer3.png' %} alt="" />
+            </div>
+            <div class="parallax-layer" style="width:425px; height:425px;">
+              <img src={% static 'images/parallax-mugshot.png' %} alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h2>Wat meer over mij</h2>
+          <p>
+            Mijn naam is Nick Geense, 33 jaar en geboren en getogen in Rotterdam in
+            een tijd waarin de computer net op kwam en steeds populairder werd binnen
+            het huishouden. Het is dan ook niet zo gek dat ik een echte computerfreak
+            ben; van Hardware tot Software; van PHP tot Django en van mij eigen apps
+            tot simpele websites voor mijn vrienden.
+          </p>
+          <p>
+            Naast mijn vrouw en kind, en mijn passie, houd ik soms tijd over om motor
+            te rijden of het spelen (en luisteren) van muziek, het kijken van series en
+            het spelen van games. Daarnaast hou ik ook enorm veel van reizen, met als
+            doel om zoveel mogelijk van de wereld te zien.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row main-row">
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="col-md-6">
+          <div class="row row-eq-height">
+            <div class="col-md-3">
+              <h2 class="text-center">HTML</h2>
+            </div>
+            <div class="col-md-9">
+              <img class="img-responsive align-center" src={% static 'images/html-progress.png' %} alt="HTML-progress" />
+            </div>
+          </div>
+          <div class="row row-eq-height">
+            <div class="col-md-3">
+              <h2 class="text-center">MySQL</h2>
+            </div>
+            <div class="col-md-9">
+              <img class="img-responsive align-center" src={% static 'images/mysql-progress.png' %} alt="MySQL-progress" />
+            </div>
+          </div>
+          <div class="row row-eq-height">
+            <div class="col-md-3">
+              <h2 class="text-center">Python</h2>
+            </div>
+            <div class="col-md-9">
+              <img class="img-responsive align-center" src={% static 'images/python-progress.png' %} alt="Python-progress" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="row row-eq-height">
+            <div class="col-md-3">
+              <h2 class="text-center">CSS</h2>
+            </div>
+            <div class="col-md-9">
+              <img class="img-responsive align-center" src={% static 'images/css-progress.png' %} alt="CSS-progress" />
+            </div>
+          </div>
+          <div class="row row-eq-height">
+            <div class="col-md-3">
+              <h2 class="text-center">PHP</h2>
+            </div>
+            <div class="col-md-9">
+              <img class="img-responsive align-center" src={% static 'images/php-progress.png' %} alt="PHP-progress" />
+            </div>
+          </div>
+          <div class="row row-eq-height">
+            <div class="col-md-3">
+              <h2 class="text-center">Java</h2>
+            </div>
+            <div class="col-md-9">
+              <img class="img-responsive align-center" src={% static 'images/java-progress.png' %} alt="Java-progress" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="row-bottom" class="row main-row color-green">
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="col-md-6">
+          <h2>Interessant?</h2>
+          <p>
+            Mocht ik je interesse hebben gewekt, neem dan contact met mij op
+            via de mail of geef mij een belletje. Dan beantwoord ik al je
+            vragen, en natuurlijk kom ik langs om een kopje koffie te drinken
+            om meer te vertellen.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <a href="#">
+          <div class="align-center mail-button">
+            <h2>Mail mij</h2>
+          </div>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
 
 {% block footer %}
-    {% include 'pages/main_footer.html' %}
+    {% include 'pages/recruiter_footer.html' %}
 {% endblock %}
 
 {% block js-addin %}
-  <script type="text/javascript" src={% static 'js/jquery.min.js' %}></script>
+{#  <script type="text/javascript" src={% static 'js/jquery.min.js' %}></script>#}
   <script src={% static 'js/particles.js' %}></script>
   <script src={% static 'js/app.js' %}></script>
   <script type="text/javascript" src={% static 'js/recruiter.js' %}></script>

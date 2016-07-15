@@ -1303,19 +1303,16 @@ var pJS = function(tag_id, params){
         xhr.send();
 
       }else{
-        console.log('value of length = ', pJS.particles.shape.image.src.length);
         if(pJS.particles.shape.image.src instanceof Array) {
           pJS.tmp.img_obj = [];
           for(var i = 0; i < pJS.particles.shape.image.src.length; i++) {
             (function (i) {
-              console.log('value of i = ', i);
               var img = new Image();
               img.addEventListener('load', function () {
                 pJS.tmp.img_obj[i] = img;
                 pJS.fn.vendors.checkBeforeDraw();
               });
               img.src = pJS.particles.shape.image.src[i];
-              console.log('value of source = ', pJS.particles.shape.image.src[i]);
             })(i);
           }
         }else{
