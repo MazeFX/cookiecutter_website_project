@@ -6,9 +6,10 @@
  * JS for recruiter page.
  * Startup functions for js.
  */
-/* jQuery(document).ready(function(){
+
+jQuery(document).ready(function(){
     jQuery('#parallax .parallax-layer')
     .parallax({
       mouseport: jQuery('#parallax')
     });
-}); */
+});
