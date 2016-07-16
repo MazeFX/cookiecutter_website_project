@@ -120,6 +120,25 @@ h3 {
   display:         flex;
 }
 
+  .content-parallax {
+    width: 400px;
+    height: 400px;
+  }
+
+@media (max-width: 768px) {
+  .row-eq-height {
+    display: block;
+  }
+
+  .content-img {
+    width: 240px;
+    height: 240px;
+  }
+
+
+
+}
+
 .color-blue {
   background-color: $blue;
 }
