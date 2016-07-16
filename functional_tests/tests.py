@@ -60,7 +60,23 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
         header_text = self.browser.find_element_by_id('header-title').text
         self.assertIn('IT', header_text)
 
-        # TODO - Finish user story for functional test
+        # He scroll over the page and sees different sections.
+        row_top = self.browser.find_element_by_id('row-top')
+        row_middle = self.browser.find_element_by_id('row-middle')
+        row_bottom = self.browser.find_element_by_id('row-bottom')
+
+        # He sees a link button to send a mail.
+        mail_button = self.browser.find_element_by_id('send-mail-button')
+        self.assertIn('Mail mij', mail_button.text)
+
+        # He notices a nice footer
+        recruiter_footer = self.browser.find_element_by_id('recruiter-footer')
+
+        # Dave is intrigued by the website and wants to send an email
+        # by clicking on the mail button
+        mail_button.click()
+
+
         self.fail('Finish the test!')
 
     def test_layout_and_styling(self):
@@ -69,13 +85,11 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
 
-        # She notices the header title is nicely centered
-        header_title = self.browser.find_element_by_id('header-title')
-        self.assertAlmostEqual(
-            header_title.location['x'] + header_title.size['width'] / 2,
-            512,
-            delta=8
-        )
+        # He notices the header title is nicely centered
+        header_title = self.browser.find_element_by_id('header-title-begin')
+        header_font = header_title.value_of_css_property('font-family')
+
+        self.assertIn('Droid Sans', header_font)
 
         # TODO - Finish user story for layout test
         self.fail('Finish the test!')
