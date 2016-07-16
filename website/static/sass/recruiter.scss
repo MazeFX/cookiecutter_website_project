@@ -111,6 +111,8 @@ h3 {
 
 .main-row{
   padding: 1em;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .row-eq-height {
@@ -123,6 +125,11 @@ h3 {
   .content-parallax {
     width: 400px;
     height: 400px;
+  }
+
+  .col-no-padding {
+    padding-left: 0;
+    padding-right: 0;
   }
 
 @media (max-width: 768px) {
