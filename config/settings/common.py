@@ -100,11 +100,6 @@ MANAGERS = ADMINS
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db('DATABASE_URL', default='postgres:///website'),
-}
-
-DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': env('DATABASE_NAME', default='mazefx$website'),
@@ -114,9 +109,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
-
-
 
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
