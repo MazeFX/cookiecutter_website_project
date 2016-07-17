@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# GIFS - Clean up the file
-# DOCS - Write some documentation
-
 """
 File: functional/tests.py
 Creator: MazeFX
@@ -76,8 +73,18 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
         # by clicking on the mail button
         mail_button.click()
 
-
+        # Dave is send to a page with an send email form
         self.fail('Finish the test!')
+
+        # Dave enters his credentials and question and click send
+
+        # Dave sees a message that the email has been sent.
+        # And another link for going back to the recruiter page.
+
+        # Dave is satisfied with his people skills and congratulates himself
+        # with another good person recruited and leaves the page.
+
+        # End of test.
 
     def test_layout_and_styling(self):
 
@@ -85,11 +92,13 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
         self.browser.get(self.live_server_url)
         self.browser.set_window_size(1024, 768)
 
-        # He notices the header title is nicely centered
+        # He notices the header title has a nice font
         header_title = self.browser.find_element_by_id('header-title-begin')
         header_font = header_title.value_of_css_property('font-family')
 
         self.assertIn('Droid Sans', header_font)
 
-        # TODO - Finish user story for layout test
-        self.fail('Finish the test!')
+        # Dave is satisfied with the knowledge that at least some css is loaded
+        # so the rest of the static files most likely be loaded too.
+
+        # End of test.

@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# GIFS - Clean up the file
-# DOCS - Write some documentation
-
 """
 File: tests.py
 Creator: MazeFX
@@ -20,8 +17,6 @@ from website.pages.views import home_page
 
 
 class HomePageTest(TestCase):
-
-    # TODO - change home page from recruiter page to real home page
 
     def test_root_url_resolves_to_home_page_view(self):
         found = resolve('/')
