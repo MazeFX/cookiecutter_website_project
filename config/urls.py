@@ -28,14 +28,14 @@ from website.pages import views as page_views
 
 urlpatterns = [
     url(r'^$', page_views.home_page, name='home'),
-    url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+    #url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, include(admin.site.urls)),
 
     # User management
-    url(r'^users/', include('website.users.urls', namespace='users')),
-    url(r'^accounts/', include('allauth.urls')),
+    #url(r'^users/', include('website.users.urls', namespace='users')),
+    #url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
 
