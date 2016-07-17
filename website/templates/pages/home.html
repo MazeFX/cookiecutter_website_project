@@ -2,14 +2,12 @@
 {# DOCS - Write some documentation and tags #}
 
 {# TODO - set id behind class #}
-{# TODO - create ogp image for linked in #}
-{# TODO - create favicon#}
 
 {% extends "base.html" %}
 {% load staticfiles %}
 
 {% block title %}
-    IT's my future!
+  IT's my future!
 {% endblock %}
 
 {% block meta %}
@@ -30,11 +28,11 @@
 {% endblock %}
 
 {% block header %}
-    {% include 'pages/recruiter_header.html' %}
+  {% include 'pages/recruiter_header.html' %}
 {% endblock %}
 
 {% block content %}
-  <div id="row-top" class="row main-row color-blue">
+  <div class="row main-row color-blue" id="row-top">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
@@ -236,7 +234,7 @@
     </div>
   </div>
 
-  <div id="row-bottom" class="row main-row color-green">
+  <div class="row main-row color-green" id="row-bottom">
     <div class="container">
       <div class="row row-eq-height">
         <div class="col-xs-12 col-md-6">

@@ -19,12 +19,29 @@ Goal: Recruit a Django Developer who is enthusiastic about programming
 
 """
 
+import sys
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
 class RecruiterVisitTest(StaticLiveServerTestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        for arg in sys.argv:
+            if 'liveserver' in arg:
+                cls.server_url = 'http://' + arg.split('=')[1]
+                cls.live_server_url = None
+                return
+        super().setUpClass()
+        cls.server_url = cls.live_server_url
+
+    @classmethod
+    def tearDownClass(cls):
+        if cls.live_server_url:
+            if cls.server_url == cls.live_server_url:
+                super().tearDownClass()
 
     def setUp(self):
         caps = DesiredCapabilities.FIREFOX
@@ -45,7 +62,7 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
         # intrigues is the url link send with the application.
         # Dave fires up a web browser and goes to the url.
 
-        self.browser.get(self.live_server_url)
+        self.browser.get(self.server_url)
 
         # He notices that the page title mentions IT
         self.assertIn('IT', self.browser.title)
@@ -89,7 +106,7 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
     def test_layout_and_styling(self):
 
         # Dave goes to the recruiter page
-        self.browser.get(self.live_server_url)
+        self.browser.get(self.server_url)
         self.browser.set_window_size(1024, 768)
 
         # He notices the header title has a nice font
