@@ -105,7 +105,7 @@ DATABASES = {
         'NAME': env('DATABASE_NAME', default='mazefx$website'),
         'USER': env('DATABASE_USER', default='MazeFX-Admin'),
         'PASSWORD': env('DATABASE_PASSWORD', default='stsfUjrgpwHtty181%17'),
-        'HOST': 'MazeFX.mysql.pythonanywhere-services.com',
+        'HOST': env('DATABASE_HOST', default=''),
         'PORT': '',
     }
 }
