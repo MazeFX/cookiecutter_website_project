@@ -105,7 +105,7 @@ DATABASES = {
         'NAME': env('DATABASE_NAME', default='mazefx$website'),
         'USER': env('DATABASE_USER', default='MazeFX-Admin'),
         'PASSWORD': env('DATABASE_PASSWORD', default='stsfUjrgpwHtty181%17'),
-        'HOST': '',
+        'HOST': 'MazeFX.mysql.pythonanywhere-services.com',
         'PORT': '',
     }
 }
@@ -231,7 +231,7 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = 'users:redirect'
 LOGIN_URL = 'account_login'
 
-# SLUGLIFIER
+# SLUGIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 

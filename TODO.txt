@@ -28,10 +28,8 @@ Goal list.
 #                                                                        #
 ##########################################################################
 
-* TODO - Create a function test for visiting the home website
+* TODO - finish function test for sending an email with the websites mail server
 
 * TODO - add new task structure to all files when necessary
 
 * TODO - Build the docs with sphinx
-
-* TODO - Build media queries for mobile viewing

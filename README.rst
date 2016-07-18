@@ -1,82 +1,61 @@
-cookiecutter_website_project
-==============================
+Portfolio website
+=================
 
-Cookiecutter attempt for personal website
+Website portfolio of MazeFX for kickstarting my carreer as a developer.
+Took some shortcuts to get a simple one page website running.
 
-.. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
-     :target: https://github.com/pydanny/cookiecutter-django/
-     :alt: Built with Cookiecutter Django
+The website is still under construction with regular updates.
 
-
-LICENSE: MIT
-
+Is going to be part of a more comprehensive website structure with more of a General blog website combined with a portfolio.
+Will be a attempt to create my own cookiecutter template based on cookiecutter-django but with MySQL database for deployment on a free *pythonanywhere.com* account.
 
 Settings
-------------
+--------
 
-Moved to settings_.
+Settings for django project is broken down into 3 files under */website/config/settings/*.
 
-.. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
+(Based on standard setup from cookiecutter-django template, noted here are the changed settings)
 
-Basic Commands
---------------
-
-Setting Up Your Users
-^^^^^^^^^^^^^^^^^^^^^
-
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
-
-* To create an **superuser account**, use this command::
-
-    $ python manage.py createsuperuser
-
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+* Base
+* Local
+* Production
 
 Test coverage
-^^^^^^^^^^^^^
+-------------
 
-To run the tests, check your test coverage, and generate an HTML coverage report::
+No test provided yet. Still under construction.
 
-    $ coverage run manage.py test
-    $ coverage html
-    $ open htmlcov/index.html
-
-Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-  $ py.test
-
-
-Live reloading and Sass CSS compilation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Moved to `Live reloading and SASS compilation`_.
-
-.. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
-
-
-
-
-
-
-
-
-Sentry
-^^^^^^
-
-Sentry is an error logging aggregator service. You can sign up for a free account at  https://getsentry.com/signup/?code=cookiecutter  or download and host it yourself.
-The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
-
-You must set the DSN url in production.
-
+Still reading Test Driven Development with Python by Harry Percival.
 
 
 
 Deployment
 ----------
 
+No deployment settings provided as of yet as of yet.
+will write a section for deployment instructions and settings for global deployment and for deployment on *pythonanywhere.com*.
+
+.. TODO - Collect and Write deployment instructions.
+
+License and disclaimer
+----------------------
+
+This software is released with a buildup of the following licenses:
+
+(Here should come a list or table of all used modules and their license to provide insight into the used licenses)
+
+Current license:
+  MIT License Copyright (c) 2016 MazeFX Solutions
+
+.. TODO - Add license.txt file to project
+
+Footnote
+--------
+
+| **I want to be a developer!**
+|
+| Got a job? Like what you see?
+| Send me a message, I would love to hear your proposition.
 
 
-
+Enjoy your stay on my repository and happy codings!!
