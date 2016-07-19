@@ -44,7 +44,7 @@ urlpatterns = [
 
 from django.core.mail import send_mail
 
-send_mail("Subject", "text body", "from@example.com",
+send_mail("Subject", "text body", "from@Sandbox1164858fa1dc4ce7bf986ef9a82f17cb.Mailgun.Org",
           ["filoplast@gmail.com"], html_message="<html>html body</html>")
 
 if settings.DEBUG:
