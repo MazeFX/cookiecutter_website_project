@@ -28,6 +28,7 @@ from website.pages import views as page_views
 
 urlpatterns = [
     url(r'^$', page_views.home_page, name='home'),
+    url(r'^send-mail/', page_views.send_email, name='email'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
 
     # Django Admin, use {% url 'admin:index' %}
