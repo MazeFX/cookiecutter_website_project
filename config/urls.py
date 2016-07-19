@@ -40,8 +40,12 @@ urlpatterns = [
 
     # Your stuff: custom urls includes go here
 
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+from django.core.mail import send_mail
+
+send_mail("Subject", "text body", "from@example.com",
+          ["filoplast@gmail.com"], html_message="<html>html body</html>")
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
