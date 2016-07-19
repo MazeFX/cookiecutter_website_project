@@ -83,7 +83,7 @@ COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=False)
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
                          default='website <noreply@mazefx.pythonanywhere.com>')
 EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[website] ')
-SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default='MazeFx-Server@Sandbox1164858fa1dc4ce7bf986ef9a82f17cb.Mailgun.Org')
+SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default='server@Sandbox1164858fa1dc4ce7bf986ef9a82f17cb.Mailgun.Org')
 
 # Anymail with Mailgun
 INSTALLED_APPS += ("anymail", )
@@ -135,7 +135,7 @@ SENTRY_DSN = env('DJANGO_SENTRY_DSN')
 SENTRY_CLIENT = env('DJANGO_SENTRY_CLIENT', default='raven.contrib.django.raven_compat.DjangoClient')
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'root': {
         'level': 'WARNING',
         'handlers': ['sentry'],
@@ -155,6 +155,10 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler'
         }
     },
     'loggers': {
@@ -177,6 +181,11 @@ LOGGING = {
             'level': 'ERROR',
             'handlers': ['console', 'sentry'],
             'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
         },
     },
 }
