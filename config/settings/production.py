@@ -76,7 +76,7 @@ STATIC_URL = '/staticfiles/'
 # COMPRESSOR
 # ------------------------------------------------------------------------------
 COMPRESS_URL = STATIC_URL
-COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=False)
+COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=True)
 
 # EMAIL
 # ------------------------------------------------------------------------------
