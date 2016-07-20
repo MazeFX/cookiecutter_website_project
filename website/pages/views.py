@@ -16,3 +16,5 @@ def home_page(request):
     return render(request, 'pages/home.html')
 
 
+def contact_page(request):
+    return render(request, 'pages/contact.html')

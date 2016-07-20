@@ -15,7 +15,7 @@ from django.test import TestCase
 from django.http import HttpRequest
 from django.template.loader import render_to_string
 
-from website.pages.views import home_page, contact
+from website.pages.views import home_page, contact_page
 
 
 class HomePageTest(TestCase):
@@ -34,13 +34,13 @@ class HomePageTest(TestCase):
 
 class ContactTest(TestCase):
 
-    def test_contact_url_resolves_to_contact_view(self):
+    def test_contact_url_resolves_to_contact_page_view(self):
         found = resolve('/contact/')
-        self.assertEqual(found.func, contact)
+        self.assertEqual(found.func, contact_page)
 
     def test_contact_returns_correct_html(self):
         request = HttpRequest()
-        response = contact(request)
+        response = contact_page(request)
         expected_html = render_to_string('pages/contact.html')
 
         self.assertEqual(response.content.decode(), expected_html)

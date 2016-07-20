@@ -8,11 +8,6 @@
 {% endblock %}
 
 {% block meta %}
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
-  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/favicon-96x96.png' %}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
-
   <!-- OGP proprties for LinkedIn -->
   <meta property="og:title" content="IT's my future!"/>
   <meta property="og:image" content="{% static 'images/ogp_image.png' %}" />
@@ -245,7 +240,7 @@
         </div>
         <div class="col-xs-12 col-md-6">
           <div class="content-mail-button">
-            <a href="mailto:nickgeense@gmail.com" id="send-mail-button">
+            <a href="{% url 'contact' %}" id="send-mail-button" class="mail-link">
               <div class="align-center mail-button">
                 <h2>Mail mij</h2>
               </div>
