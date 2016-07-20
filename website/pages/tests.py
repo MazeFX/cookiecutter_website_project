@@ -6,6 +6,8 @@ Creator: MazeFX
 Date: 12-7-2016
 
 Tests written for testing main website pages (home, about, contact, etc)
+
+Contact page has the ability to send emails through anymail/mailgun.
 """
 
 from django.core.urlresolvers import resolve
@@ -13,7 +15,7 @@ from django.test import TestCase
 from django.http import HttpRequest
 from django.template.loader import render_to_string
 
-from website.pages.views import home_page, send_email
+from website.pages.views import home_page, contact
 
 
 class HomePageTest(TestCase):
@@ -30,15 +32,15 @@ class HomePageTest(TestCase):
         self.assertEqual(response.content.decode(), expected_html)
 
 
-class SendEmailTest(TestCase):
+class ContactTest(TestCase):
 
-    def test_send_email_url_resolves_to_send_email_view(self):
-        found = resolve('/send-email/')
-        self.assertEqual(found.func, send_email)
+    def test_contact_url_resolves_to_contact_view(self):
+        found = resolve('/contact/')
+        self.assertEqual(found.func, contact)
 
-    def test_send_email_returns_correct_html(self):
+    def test_contact_returns_correct_html(self):
         request = HttpRequest()
-        response = send_email(request)
-        expected_html = render_to_string('pages/send_email.html')
+        response = contact(request)
+        expected_html = render_to_string('pages/contact.html')
 
         self.assertEqual(response.content.decode(), expected_html)
