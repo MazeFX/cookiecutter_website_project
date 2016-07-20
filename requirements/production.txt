@@ -2,10 +2,6 @@
 #	production that aren't in development.
 -r base.txt
 
-# Security measures
-# ------------------------------------------------
-django-secure==1.0.1
-
 # WSGI Handler
 # ------------------------------------------------
 gevent==1.1.1
