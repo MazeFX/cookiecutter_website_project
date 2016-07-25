@@ -132,25 +132,25 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
         self.assertIn('Send Email', header_text)
 
         # He is invited to enter his name, email, subject and message.
-        inputbox_name = self.browser.find_element_by_name('fullname')
+        inputbox_name = self.browser.find_element_by_id('id_fullname')
         self.assertEqual(
             inputbox_name.get_attribute('placeholder'),
             'Voer je naam in'
         )
 
-        inputbox_name = self.browser.find_element_by_name('email')
+        inputbox_name = self.browser.find_element_by_id('id_email')
         self.assertEqual(
             inputbox_name.get_attribute('placeholder'),
             'Voer je email in'
         )
 
-        inputbox_name = self.browser.find_element_by_name('subject')
+        inputbox_name = self.browser.find_element_by_id('id_subject')
         self.assertEqual(
             inputbox_name.get_attribute('placeholder'),
             'Onderwerp'
         )
 
-        inputbox_name = self.browser.find_element_by_name('message')
+        inputbox_name = self.browser.find_element_by_id('id_message')
         self.assertEqual(
             inputbox_name.get_attribute('placeholder'),
             'Bericht'
