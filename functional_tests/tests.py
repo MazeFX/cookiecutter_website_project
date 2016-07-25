@@ -30,22 +30,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import staleness_of
 
 
-class wait_for_page_load(object):
-
-    def __init__(self, browser):
-        self.browser = browser
-
-    def __enter__(self):
-        self.old_page = self.browser.find_element_by_tag_name('html')
-
-    def page_has_loaded(self):
-        new_page = self.browser.find_element_by_tag_name('html')
-        return new_page.id != self.old_page.id
-
-    def __exit__(self, *_):
-        wait_for_page_load(self.page_has_loaded)
-
-
 class RecruiterVisitTest(StaticLiveServerTestCase):
 
     @classmethod
@@ -110,6 +94,7 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
 
         # He sees a link button to send a mail.
         mail_button = self.browser.find_element_by_id('send-mail-button')
+
         self.assertIn('Mail mij', mail_button.text)
 
         # He notices a nice footer
@@ -117,17 +102,18 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
 
         # Dave is intrigued by the website and wants to send an email
         # by clicking on the mail button
-        mail_button.click()
-        # TODO - get selenium click to work in the FT
-        with wait_for_page_load(self.browser):
+
+
+        with self.wait_for_page_load(timeout=10):
             mail_button.click()
 
-        time.sleep(10)
-        '''
+        self.assertIn('Send Email', self.browser.title)
+
+        # time.sleep(5)
         # Dave is send to a page with an send email form
 
         # He notices the page title and header mention send email
-        self.assertIn('Send Email', self.browser.title)
+
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('Send Email', header_text)
 
@@ -168,7 +154,6 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
         # with another good person recruited and leaves the page.
 
         # End of test.
-        '''
 
     def test_layout_and_styling(self):
 
@@ -182,7 +167,7 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
 
         self.assertIn('Droid Sans', header_font)
 
-        # Dave is satisfied with the knowledge that at least some css is loaded
-        # so the rest of the static files most likely be loaded too.
+        # Dave is satisfied with the knowledge that at least some css is loaded,
+        # fonts work so the rest of the static files most likely be loaded too.
 
         # End of test.
