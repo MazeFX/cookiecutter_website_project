@@ -35,7 +35,7 @@
       <input name="email" id="id_email" placeholder="Voer je email in" />
       <input name="subject" id="id_subject" placeholder="Onderwerp" />
       <input name="message" id="id_message" placeholder="Bericht" />
-      
+      {% csrf_token %}
   </form>
 
 {% endblock %}
