@@ -38,9 +38,18 @@ class ContactTest(TestCase):
         found = resolve('/contact/')
         self.assertEqual(found.func, contact_page)
 
-    def test_contact_returns_correct_html(self):
+    def test_contact_page_returns_correct_html(self):
         request = HttpRequest()
         response = contact_page(request)
-        expected_html = render_to_string('pages/contact.html')
+        expected_html = render_to_string('pages/contact.html', request=request)
 
         self.assertEqual(response.content.decode(), expected_html)
+
+    def test_contact_page_can_save_a_POST_request(self):
+        request = HttpRequest()
+        request.method = 'POST'
+        request.POST['fullname'] = 'Dave'
+
+        response = contact_page(request)
+
+        self.assertIn('Dave', response.content.decode())

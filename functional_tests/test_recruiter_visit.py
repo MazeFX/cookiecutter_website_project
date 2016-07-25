@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """
-File: functional/tests.py
+File: functional/test_recruiter_visit.py
 Creator: MazeFX
-Date: 11-7-2016
+Date: 25-7-2016
 
 1st functional test construct written by following the book
 'Test Driven Development with Python' by Harry Percival.
@@ -19,55 +19,10 @@ Goal: Recruit a Django Developer who is enthusiastic about programming
 
 """
 
-import sys
-import time
-
-from contextlib import contextmanager
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support.expected_conditions import staleness_of
+from .base import FunctionalTest
 
 
-class RecruiterVisitTest(StaticLiveServerTestCase):
-
-    @classmethod
-    def setUpClass(cls):
-        for arg in sys.argv:
-            if 'liveserver' in arg:
-                cls.server_url = 'http://' + arg.split('=')[1]
-                cls.live_server_url = None
-                return
-        super().setUpClass()
-        cls.server_url = cls.live_server_url
-
-    @classmethod
-    def tearDownClass(cls):
-        if cls.live_server_url:
-            if cls.server_url == cls.live_server_url:
-                super().tearDownClass()
-
-    def setUp(self):
-        caps = DesiredCapabilities.FIREFOX
-
-        # Tell the Python bindings to use Marionette.
-        # This will not be necessary in the future,
-        # when Selenium will auto-detect what remote end
-        # it is talking to.
-        caps["marionette"] = True
-        self.browser = webdriver.Firefox(capabilities=caps)
-
-    def tearDown(self):
-        self.browser.quit()
-
-    @contextmanager
-    def wait_for_page_load(self, timeout=10):
-        old_page = self.browser.find_element_by_tag_name('html')
-        yield
-        WebDriverWait(self.browser, timeout).until(
-            staleness_of(old_page)
-        )
+class RecruiterVisitTest(FunctionalTest):
 
     def test_browsing_the_recruiter_page_and_sending_an_email(self):
 
@@ -102,18 +57,12 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
 
         # Dave is intrigued by the website and wants to send an email
         # by clicking on the mail button
-
-
         with self.wait_for_page_load(timeout=10):
             mail_button.click()
 
-        self.assertIn('Send Email', self.browser.title)
-
-        # time.sleep(5)
         # Dave is send to a page with an send email form
-
         # He notices the page title and header mention send email
-
+        self.assertIn('Send Email', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('Send Email', header_text)
 
@@ -124,21 +73,21 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
             'Voer je naam in'
         )
 
-        inputbox_name = self.browser.find_element_by_id('id_email')
+        inputbox_email = self.browser.find_element_by_id('id_email')
         self.assertEqual(
-            inputbox_name.get_attribute('placeholder'),
+            inputbox_email.get_attribute('placeholder'),
             'Voer je email in'
         )
 
-        inputbox_name = self.browser.find_element_by_id('id_subject')
+        inputbox_subject = self.browser.find_element_by_id('id_subject')
         self.assertEqual(
-            inputbox_name.get_attribute('placeholder'),
+            inputbox_subject.get_attribute('placeholder'),
             'Onderwerp'
         )
 
-        inputbox_name = self.browser.find_element_by_id('id_message')
+        inputbox_message = self.browser.find_element_by_id('id_message')
         self.assertEqual(
-            inputbox_name.get_attribute('placeholder'),
+            inputbox_message.get_attribute('placeholder'),
             'Bericht'
         )
 
@@ -152,22 +101,5 @@ class RecruiterVisitTest(StaticLiveServerTestCase):
 
         # Dave is satisfied with his people skills and congratulates himself
         # with another good person recruited and leaves the page.
-
-        # End of test.
-
-    def test_layout_and_styling(self):
-
-        # Dave goes to the recruiter page
-        self.browser.get(self.server_url)
-        self.browser.set_window_size(1024, 768)
-
-        # He notices the header title has a nice font
-        header_title = self.browser.find_element_by_id('header-title-begin')
-        header_font = header_title.value_of_css_property('font-family')
-
-        self.assertIn('Droid Sans', header_font)
-
-        # Dave is satisfied with the knowledge that at least some css is loaded,
-        # fonts work so the rest of the static files most likely be loaded too.
 
         # End of test.
