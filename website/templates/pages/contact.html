@@ -2,7 +2,7 @@
 {# DOCS - Write some documentation and tags #}
 
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load staticfiles crispy_forms_tags %}
 
 {% block title %}
   Send Email
@@ -29,13 +29,17 @@
 {% endblock %}
 
 {% block content %}
+  {% crispy form %}
+
+  {% comment %}
   <form method="POST">
-      <input name="fullname" id="id_fullname" placeholder="Voer je naam in" />
-      <input name="email" id="id_email" placeholder="Voer je email in" />
-      <input name="subject" id="id_subject" placeholder="Onderwerp" />
-      <input name="message" id="id_message" placeholder="Bericht" />
-      {% csrf_token %}
+    <input name="fullname" id="id_fullname" placeholder="Voer je naam in" />
+    <input name="email" id="id_email" placeholder="Voer je email in" />
+    <input name="subject" id="id_subject" placeholder="Onderwerp" />
+    <input name="message" id="id_message" placeholder="Bericht" />
+    {% csrf_token %}
   </form>
+  {% endcomment %}
 
 {% endblock %}
 

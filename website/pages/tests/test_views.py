@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-File: tests.py
+File: pages/tests/test_views.py
 Creator: MazeFX
 Date: 12-7-2016
 
@@ -16,6 +16,7 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 
 from website.pages.views import home_page, contact_page
+from website.pages.forms import ContactForm
 
 
 class HomePageTest(TestCase):
@@ -30,6 +31,11 @@ class HomePageTest(TestCase):
         expected_html = render_to_string('pages/home.html')
 
         self.assertEqual(response.content.decode(), expected_html)
+
+    def test_home_page_renders_home_template(self):
+        response = self.client.get('/')
+
+        self.assertTemplateUsed(response, 'pages/home.html')  #
 
 
 class ContactTest(TestCase):
@@ -53,3 +59,8 @@ class ContactTest(TestCase):
         response = contact_page(request)
 
         self.assertIn('Dave', response.content.decode())
+
+    def test_home_page_uses_contact_form(self):
+        response = self.client.get('/contact/')
+
+        self.assertIsInstance(response.context['form'], ContactForm)
