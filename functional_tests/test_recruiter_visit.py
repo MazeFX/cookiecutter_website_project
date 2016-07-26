@@ -19,6 +19,7 @@ Goal: Recruit a Django Developer who is enthusiastic about programming
 
 """
 
+import time
 from .base import FunctionalTest
 
 
@@ -72,24 +73,41 @@ class RecruiterVisitTest(FunctionalTest):
             inputbox_name.get_attribute('placeholder'),
             'Voer je naam in'
         )
+        inputbox_name.send_keys('Dave')
 
         inputbox_email = self.browser.find_element_by_id('id_email')
         self.assertEqual(
             inputbox_email.get_attribute('placeholder'),
             'Voer je email in'
         )
+        inputbox_email.send_keys('Dave@TheITCompany.com')
 
         inputbox_subject = self.browser.find_element_by_id('id_subject')
         self.assertEqual(
             inputbox_subject.get_attribute('placeholder'),
             'Onderwerp'
         )
+        inputbox_subject.send_keys('(Testmail) I want you to work for us!')
 
         inputbox_message = self.browser.find_element_by_id('id_message')
         self.assertEqual(
             inputbox_message.get_attribute('placeholder'),
             'Bericht'
         )
+        inputbox_message.send_keys(
+            '''Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vivamus consequat varius justo at viverra. Cras finibus semper
+            ligula, vel finibus justo rhoncus a. Nunc non pulvinar urna.
+            Vivamus tempus, est quis pulvinar elementum, nulla eros viverra
+            leo, eu vestibulum diam mauris et enim. Fusce vitae massa et justo
+            vestibulum vestibulum in non sem. Phasellus ipsum nisi, iaculis
+            quis imperdiet ut, mollis eu felis. Aliquam maximus nunc vel
+            tincidunt maximus. Aliquam at mollis lorem.
+
+            Dear Regards,
+            Dave'''
+        )
+        time.sleep(10)
 
         # Dave enters his credentials and question
         self.fail('Finish the test!')

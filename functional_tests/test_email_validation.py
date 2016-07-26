@@ -20,6 +20,8 @@ Goal: Recruit a Django Developer who is enthusiastic about programming
 """
 
 from .base import FunctionalTest
+import urllib.parse
+
 
 
 class EmailValidationTest(FunctionalTest):
@@ -28,8 +30,11 @@ class EmailValidationTest(FunctionalTest):
         # Dave goes to the contact page and is having a very bad day
         # Last night he went and drank way to much so now he is all kinds
         # of mistakes when entering information
+        url = urllib.parse.urljoin(self.server_url, '/contact/')
+        self.browser.get(url)
 
+        self.assertIn('Send Email', self.browser.title)
         # Dave forgets to enter a name
-        # TODO - Finish user story
+        # TODO - Finish user story for wrong information
 
         self.fail('write me!')
