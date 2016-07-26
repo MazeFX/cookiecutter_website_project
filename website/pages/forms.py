@@ -13,8 +13,12 @@ Python Test docstring.
 
 
 from django import forms
+from django.core.validators import EmailValidator
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+
+EMPTY_FULLNAME_ERROR = 'Hey je moet wel invullen!'
+EMAIL_FORMAT_ERROR = 'Vul een geldig email adres in.'
 
 
 class ContactForm(forms.Form):
@@ -22,23 +26,30 @@ class ContactForm(forms.Form):
         label="Volledige naam",
         max_length=30,
         required=True,
+        error_messages={'required': EMPTY_FULLNAME_ERROR},
     )
 
-    email = forms.EmailField(
+    email = forms.CharField(
         label="Email adres",
         max_length=30,
         required=True,
+        error_messages={'required': EMPTY_FULLNAME_ERROR},
+        validators=[EmailValidator(
+            message=EMAIL_FORMAT_ERROR
+        )]
     )
 
     subject = forms.CharField(
         label="Onderwerp",
         max_length=80,
         required=True,
+        error_messages={'required': EMPTY_FULLNAME_ERROR},
     )
 
     message = forms.CharField(
         label="Bericht",
         required=True,
+        error_messages={'required': EMPTY_FULLNAME_ERROR},
         widget=forms.Textarea
     )
 
@@ -48,6 +59,6 @@ class ContactForm(forms.Form):
         self.helper.form_id = 'id-ContactForm'
         self.helper.form_class = 'contact-form'
         self.helper.form_method = 'post'
-        self.helper.form_action = 'send_email'
+        self.helper.form_action = ''
 
         self.helper.add_input(Submit('submit', 'Submit'))

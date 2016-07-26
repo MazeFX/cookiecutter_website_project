@@ -51,7 +51,12 @@ class ContactTest(TestCase):
 
         self.assertEqual(response.content.decode(), expected_html)
 
-    def test_contact_page_can_save_a_POST_request(self):
+    def test_contact_page_uses_contact_form(self):
+        response = self.client.get('/contact/')
+
+        self.assertIsInstance(response.context['form'], ContactForm)
+
+    def test_contact_page_returns_a_POST_request_on_submit(self):
         request = HttpRequest()
         request.method = 'POST'
         request.POST['fullname'] = 'Dave'
@@ -60,7 +65,3 @@ class ContactTest(TestCase):
 
         self.assertIn('Dave', response.content.decode())
 
-    def test_home_page_uses_contact_form(self):
-        response = self.client.get('/contact/')
-
-        self.assertIsInstance(response.context['form'], ContactForm)

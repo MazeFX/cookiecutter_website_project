@@ -8,8 +8,7 @@ Date: 12-7-2016
 Views written for rendering main website pages (home, about, contact, etc).
 """
 
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.core.mail import send_mail
 
 from website.pages.forms import ContactForm
@@ -20,6 +19,10 @@ def home_page(request):
 
 
 def contact_page(request):
+    form = ContactForm()
     if request.method == 'POST':
-        return HttpResponse(request.POST['fullname'])
-    return render(request, 'pages/contact.html', {'form': ContactForm()})
+        form = ContactForm(data=request.POST)
+        if form.is_valid():
+            print('-----------------------Form is valid___________')
+            return redirect('../contact/mail_sent/')
+    return render(request, 'pages/contact.html', {"form": form})
