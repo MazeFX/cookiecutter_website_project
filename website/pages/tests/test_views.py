@@ -14,7 +14,7 @@ from django.core.urlresolvers import resolve
 from django.core import mail
 from django.test import TestCase
 from django.http import HttpRequest
-from django.template.loader import render_to_string
+from django.template.loader import render_to_string, get_template
 from django.utils.html import escape
 
 
@@ -42,6 +42,13 @@ class HomePageTest(TestCase):
 
 
 class ContactTest(TestCase):
+
+    TEST_POST = {'fullname': 'Dave',
+                 'email': 'from@MazeFXtester.com',
+                 'subject': 'Unit test mail',
+                 'message': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et purus '
+                            'interdum dui auctor tempus eget vel sapien. Etiam in.'
+                 }
 
     def test_contact_url_resolves_to_contact_page_view(self):
         found = resolve('/contact/')
@@ -86,7 +93,7 @@ class ContactTest(TestCase):
     def test_contact_page_sends_an_email_on_submit(self):
         request = HttpRequest()
         request.method = 'POST'
-        request.POST['fullname'] = 'Dave'
+        request.POST = self.TEST_POST
 
         response = contact_page(request)
 
@@ -96,13 +103,14 @@ class ContactTest(TestCase):
     def test_sent_email_uses_correct_email_template(self):
         request = HttpRequest()
         request.method = 'POST'
-        request.POST['fullname'] = 'Dave'
-        request.POST['email'] = 'from@MazeFXtester.com'
-        request.POST['subject'] = 'Unit test mail'
-        request.POST['message'] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et purus ' \
-                                  'interdum dui auctor tempus eget vel sapien. Etiam in.'
+        request.POST = self.TEST_POST
 
         # TODO - pre render template for comparison
+
+        template = get_template('pages/contact_email.txt')
+        context = self.TEST_POST
+
+        content = template.render(context)
         response = contact_page(request)
 
-        self.assertEqual(mail.outbox[0].content, 'New contact form submission from recruiter mail.')
+        self.assertEqual(mail.outbox[0].body, content)
