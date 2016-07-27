@@ -14,9 +14,10 @@ from django.core.urlresolvers import resolve
 from django.test import TestCase
 from django.http import HttpRequest
 from django.template.loader import render_to_string
+from django.utils.html import escape
 
 from website.pages.views import home_page, contact_page
-from website.pages.forms import ContactForm
+from website.pages.forms import ContactForm, EMPTY_ITEM_ERROR
 
 
 class HomePageTest(TestCase):
@@ -35,21 +36,20 @@ class HomePageTest(TestCase):
     def test_home_page_renders_home_template(self):
         response = self.client.get('/')
 
-        self.assertTemplateUsed(response, 'pages/home.html')  #
+        self.assertTemplateUsed(response, 'pages/home.html')
 
 
 class ContactTest(TestCase):
 
     def test_contact_url_resolves_to_contact_page_view(self):
         found = resolve('/contact/')
+
         self.assertEqual(found.func, contact_page)
 
-    def test_contact_page_returns_correct_html(self):
-        request = HttpRequest()
-        response = contact_page(request)
-        expected_html = render_to_string('pages/contact.html', request=request)
+    def test_contact_page_renders_contact_template(self):
+        response = self.client.get('/contact/')
 
-        self.assertEqual(response.content.decode(), expected_html)
+        self.assertTemplateUsed(response, 'pages/contact.html')
 
     def test_contact_page_uses_contact_form(self):
         response = self.client.get('/contact/')
@@ -64,4 +64,21 @@ class ContactTest(TestCase):
         response = contact_page(request)
 
         self.assertIn('Dave', response.content.decode())
+
+    def test_for_invalid_input_renders_contact_template(self):
+        response = self.client.post('/contact/', data={'fullname': ''})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'pages/contact.html')
+
+    def test_validation_errors_are_shown_on_contact_page(self):
+        response = self.client.post('/contact/', data={'fullname': ''})
+
+        self.assertContains(response, escape(EMPTY_ITEM_ERROR))
+
+    def test_for_invalid_input_passes_form_to_template(self):
+        response = self.client.post('/contact/', data={'fullname': ''})
+
+        self.assertIsInstance(response.context['form'], ContactForm)
+
 

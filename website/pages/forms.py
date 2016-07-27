@@ -17,7 +17,7 @@ from django.core.validators import EmailValidator
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
-EMPTY_FULLNAME_ERROR = 'Hey je moet wel invullen!'
+EMPTY_ITEM_ERROR = 'Hey je moet wel invullen!'
 EMAIL_FORMAT_ERROR = 'Vul een geldig email adres in.'
 
 
@@ -26,14 +26,14 @@ class ContactForm(forms.Form):
         label="Volledige naam",
         max_length=30,
         required=True,
-        error_messages={'required': EMPTY_FULLNAME_ERROR},
+        error_messages={'required': EMPTY_ITEM_ERROR},
     )
 
     email = forms.CharField(
         label="Email adres",
         max_length=30,
         required=True,
-        error_messages={'required': EMPTY_FULLNAME_ERROR},
+        error_messages={'required': EMPTY_ITEM_ERROR},
         validators=[EmailValidator(
             message=EMAIL_FORMAT_ERROR
         )]
@@ -43,13 +43,13 @@ class ContactForm(forms.Form):
         label="Onderwerp",
         max_length=80,
         required=True,
-        error_messages={'required': EMPTY_FULLNAME_ERROR},
+        error_messages={'required': EMPTY_ITEM_ERROR},
     )
 
     message = forms.CharField(
         label="Bericht",
         required=True,
-        error_messages={'required': EMPTY_FULLNAME_ERROR},
+        error_messages={'required': EMPTY_ITEM_ERROR},
         widget=forms.Textarea
     )
 

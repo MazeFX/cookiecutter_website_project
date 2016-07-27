@@ -14,7 +14,7 @@ Python Test docstring.
 from django.test import TestCase
 from website.pages.forms import ContactForm
 
-from website.pages.forms import EMPTY_FULLNAME_ERROR, EMAIL_FORMAT_ERROR
+from website.pages.forms import EMPTY_ITEM_ERROR, EMAIL_FORMAT_ERROR
 
 
 class ContactFormTest(TestCase):
@@ -27,7 +27,7 @@ class ContactFormTest(TestCase):
     def test_form_validation_for_blank_fields(self):
         form = ContactForm(data={'fullname': ''})
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['fullname'], [EMPTY_FULLNAME_ERROR])
+        self.assertEqual(form.errors['fullname'], [EMPTY_ITEM_ERROR])
 
     def test_form_validation_for_email(self):
         form = ContactForm(data={'email': 'not an email'})
@@ -35,12 +35,3 @@ class ContactFormTest(TestCase):
         self.assertEqual(form.errors['email'], [EMAIL_FORMAT_ERROR])
         # TODO - add other field too
 
-
-    # def test_form_save_handles_saving_to_a_list(self):
-        '''
-        list_ = List.objects.create()
-        form = ContactForm(data={'text': 'do me'})
-        new_item = form.save(for_list=list_)
-        self.assertEqual(new_item, Item.objects.first())
-        self.assertEqual(new_item.text, 'do me')
-        self.assertEqual(new_item.list, list_)'''
