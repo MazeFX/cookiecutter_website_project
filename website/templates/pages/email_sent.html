@@ -1,0 +1,42 @@
+{# GIFS - Clean up file #}
+{# DOCS - Write some documentation and tags #}
+
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+  Email Sent
+{% endblock %}
+
+{% block meta %}
+
+{% endblock %}
+
+{% block css-addin %}
+  <link rel="stylesheet" type="text/css" href={% static 'css/recruiter.css' %} />
+{% endblock %}
+
+{% block header %}
+  <header class="navbar-inverse" id="recruiter-header">
+
+    <div class="container">
+      <div class="align-center text-center" id="header-title">
+        <h1>Email Sent</h1>
+      </div>
+    </div>
+
+  </header>
+{% endblock %}
+  Your email has been sent.
+  We will call you soon!
+{% block content %}
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'pages/recruiter_footer.html' %}
+{% endblock %}
+
+{% block js-addin %}
+
+{% endblock %}

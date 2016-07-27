@@ -24,18 +24,9 @@ def contact_page(request):
     if request.method == 'POST':
         form = ContactForm(data=request.POST)
         if form.is_valid():
-            fullname = request.POST.get('fullname', '')
-            email = request.POST.get('email', '')
-            subject = request.POST.get('subject', '')
-            message = request.POST.get('message', '')
-
+            reply_email = request.POST.get('email', '')
             template = get_template('pages/contact_email.txt')
-            context = {
-                'fullname': fullname,
-                'email': email,
-                'subject': subject,
-                'message': message,
-            }
+            context = request.POST
             content = template.render(context)
 
             email = EmailMessage(
@@ -43,9 +34,13 @@ def contact_page(request):
                 content,
                 "MazeFXwebsite@contactform.com",
                 ['filoplast@gmail.com'],
-                headers={'Reply-To': email}
+                headers={'Reply-To': reply_email}
             )
             email.send()
             return redirect('../contact/mail_sent/')
         return render(request, 'pages/contact.html', {"form": form})
     return render(request, 'pages/contact.html', {"form": form})
+
+
+def email_sent_page(request):
+    return render(request, 'pages/email_sent.html')

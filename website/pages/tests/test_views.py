@@ -18,7 +18,7 @@ from django.template.loader import render_to_string, get_template
 from django.utils.html import escape
 
 
-from website.pages.views import home_page, contact_page
+from website.pages.views import home_page, contact_page, email_sent_page
 from website.pages.forms import ContactForm, EMPTY_ITEM_ERROR
 
 
@@ -105,8 +105,6 @@ class ContactTest(TestCase):
         request.method = 'POST'
         request.POST = self.TEST_POST
 
-        # TODO - pre render template for comparison
-
         template = get_template('pages/contact_email.txt')
         context = self.TEST_POST
 
@@ -114,3 +112,21 @@ class ContactTest(TestCase):
         response = contact_page(request)
 
         self.assertEqual(mail.outbox[0].body, content)
+
+
+class EmailSentPageTest(TestCase):
+
+    def test_root_url_resolves_to_email_sent_page_view(self):
+        found = resolve('/contact/email_sent/')
+        self.assertEqual(found.func, email_sent_page)
+
+    def test_email_sent_page_returns_correct_html(self):
+        request = HttpRequest()
+        response = email_sent_page(request)
+        expected_html = render_to_string('pages/email_sent.html')
+        self.assertMultiLineEqual(response.content.decode(), expected_html)
+
+    def test_email_sent_renders_email_sent_template(self):
+        response = self.client.get('/contact/email_sent/')
+
+        self.assertTemplateUsed(response, 'pages/email_sent.html')
