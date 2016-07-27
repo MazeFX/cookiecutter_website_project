@@ -35,12 +35,20 @@
 
 html {
   position: relative;
-  min-height: 100%; }
+  height: 100%; }
 
 body {
-  /* Margin bottom by footer height */
   font-family: 'Cabin', sans-serif;
-  font-size: 2em; }
+  font-size: 2em;
+  height: 100%; }
+
+/* Wrapper for page content to push down footer */
+#main-wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -255px;
+  /* the bottom margin is the negative value of the footer's height */ }
 
 h1 {
   font-family: 'Droid Sans', sans-serif;
@@ -71,7 +79,9 @@ h3 {
 
 .content-parallax {
   width: 400px;
-  height: 400px; }
+  height: 400px;
+  max-width: 100%;
+  max-height: 100%; }
 
 .col-no-padding {
   padding-left: 0;
@@ -103,7 +113,8 @@ h3 {
   overflow: hidden;
   width: 20em;
   height: 20em;
-  max-width: 40em;
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 1em;
   border: 3px solid #fff;
   z-index: 10; }
@@ -127,20 +138,27 @@ h3 {
 
 .footer-logo {
   width: 100px;
-  height: 100px; }
+  height: 100px;
+  max-width: 100%;
+  max-height: 100%; }
 
 .footer-logo img {
   max-width: 100%;
   max-height: 100%; }
 
 .footer-distributed {
+  position: relative;
   background-color: #292c2f;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;
-  padding: 55px 50px; }
+  padding: 55px 50px;
+  min-height: 145px; }
+
+#footer-push {
+  height: 255px; }
 
 /* The company logo */
 .footer-distributed h3 {
