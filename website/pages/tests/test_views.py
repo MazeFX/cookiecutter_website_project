@@ -87,14 +87,22 @@ class ContactTest(TestCase):
         request = HttpRequest()
         request.method = 'POST'
         request.POST['fullname'] = 'Dave'
-        request.POST['email'] = 'from@MazeFXtester.com'
-        request.POST['subject'] = 'Unit test mail'
-        request.POST['message'] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et purus ' \
-                                  'interdum dui auctor tempus eget vel sapien. Etiam in.'
 
         response = contact_page(request)
 
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].subject, 'New contact form submission from recruiter mail.')
 
+    def test_sent_email_uses_correct_email_template(self):
+        request = HttpRequest()
+        request.method = 'POST'
+        request.POST['fullname'] = 'Dave'
+        request.POST['email'] = 'from@MazeFXtester.com'
+        request.POST['subject'] = 'Unit test mail'
+        request.POST['message'] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et purus ' \
+                                  'interdum dui auctor tempus eget vel sapien. Etiam in.'
 
+        # TODO - pre render template for comparison
+        response = contact_page(request)
+
+        self.assertEqual(mail.outbox[0].content, 'New contact form submission from recruiter mail.')
