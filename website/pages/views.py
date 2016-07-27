@@ -37,7 +37,7 @@ def contact_page(request):
                 headers={'Reply-To': reply_email}
             )
             email.send()
-            return redirect('../contact/mail_sent/')
+            return redirect('../contact/email_sent/')
         return render(request, 'pages/contact.html', {"form": form})
     return render(request, 'pages/contact.html', {"form": form})
 
