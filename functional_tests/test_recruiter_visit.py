@@ -67,35 +67,39 @@ class RecruiterVisitTest(FunctionalTest):
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('Send Email', header_text)
 
-        # He is invited to enter his name, email, subject and message.
-        inputbox_name = self.browser.find_element_by_id('id_fullname')
+        # He is invited to enter his full name.
+        fullname_div = self.browser.find_element_by_id('div_id_fullname')
         self.assertEqual(
-            inputbox_name.get_attribute('placeholder'),
-            'Voer je naam in'
+            fullname_div.find_element_by_tag_name('label').text,
+            'Volledige naam*'
         )
-        inputbox_name.send_keys('Dave')
+        fullname_div.find_element_by_id('id_fullname').send_keys('Dave Recruiter')
 
-        inputbox_email = self.browser.find_element_by_id('id_email')
+        # He is invited to enter his email address.
+        email_div = self.browser.find_element_by_id('div_id_email')
         self.assertEqual(
-            inputbox_email.get_attribute('placeholder'),
-            'Voer je email in'
+            email_div.find_element_by_tag_name('label').text,
+            'Email adres*'
         )
-        inputbox_email.send_keys('Dave@TheITCompany.com')
+        email_div.find_element_by_id('id_email').send_keys('Dave@TheITCompany.com')
 
-        inputbox_subject = self.browser.find_element_by_id('id_subject')
+        # He is invited to enter the email subject.
+        subject_div = self.browser.find_element_by_id('div_id_subject')
         self.assertEqual(
-            inputbox_subject.get_attribute('placeholder'),
-            'Onderwerp'
+            subject_div.find_element_by_tag_name('label').text,
+            'Onderwerp*'
         )
-        inputbox_subject.send_keys('(Testmail) I want you to work for us!')
+        subject_div.find_element_by_id('id_subject').send_keys('(Testmail) I want you to work for us!')
 
-        inputbox_message = self.browser.find_element_by_id('id_message')
+        # He is invited to enter the message text.
+        message_div = self.browser.find_element_by_id('div_id_message')
         self.assertEqual(
-            inputbox_message.get_attribute('placeholder'),
-            'Bericht'
+            message_div.find_element_by_tag_name('label').text,
+            'Bericht*'
         )
-        inputbox_message.send_keys(
-            '''Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        message_div.find_element_by_id('id_message').send_keys(
+            '''
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Vivamus consequat varius justo at viverra. Cras finibus semper
             ligula, vel finibus justo rhoncus a. Nunc non pulvinar urna.
             Vivamus tempus, est quis pulvinar elementum, nulla eros viverra
@@ -107,17 +111,24 @@ class RecruiterVisitTest(FunctionalTest):
             Dear Regards,
             Dave'''
         )
-        time.sleep(10)
 
-        # Dave enters his credentials and question
+        # Dave pauses for a few seconds to check his message
+        time.sleep(3)
+
+        # And then sends the message by clicking submit
+        submit_button = self.browser.find_element_by_id('submit-id-submit')
+        with self.wait_for_page_load(timeout=10):
+            submit_button.click()
+
+        # Dave is sent to a conformation page that the email has been sent.
+        self.assertIn('Email Sent', self.browser.title)
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('Email Sent', header_text)
+
+        # And another link for going back to the recruiter page.
         self.fail('Finish the test!')
 
-        # Dave clicks send
-
-        # Dave sees a message that the email has been sent.
-        # And another link for going back to the recruiter page.
-
         # Dave is satisfied with his people skills and congratulates himself
-        # with another good person recruited and leaves the page.
+        # with another great developer recruited and leaves the page.
 
         # End of test.

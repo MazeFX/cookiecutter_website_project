@@ -23,7 +23,6 @@ from .base import FunctionalTest
 import urllib.parse
 
 
-
 class EmailValidationTest(FunctionalTest):
 
     def test_cannot_input_invalid_values(self):
