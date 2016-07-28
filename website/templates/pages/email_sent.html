@@ -5,7 +5,7 @@
 {% load staticfiles %}
 
 {% block title %}
-  Email Sent
+  Email Verstuurd
 {% endblock %}
 
 {% block meta %}
@@ -19,9 +19,12 @@
 {% block header %}
   <header class="navbar-inverse" id="recruiter-header">
 
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+
     <div class="container">
       <div class="align-center text-center" id="header-title">
-        <h1>Email Sent</h1>
+          <span id="header-title-begin">Email</span><span id="header-title-end"> Verstuurd</span>
       </div>
     </div>
 
@@ -29,8 +32,28 @@
 {% endblock %}
 
 {% block content %}
-  Your email has been sent.
-  We will call you soon!
+  <div class="row main-row color-blue">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-xs-12 col-md-8 text-center">
+          <h1>Uw email is verstuurd.</h1>
+          <h3>Ik neem zo snel mogelijk contact met u op.</h3>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="content-mail-button">
+          <a href="{% url 'home' %}"  class="mail-link">
+            <div class="align-center mail-button" id="send-mail-button">
+              <h2>Terug</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% block footer %}
@@ -38,5 +61,7 @@
 {% endblock %}
 
 {% block js-addin %}
+  <script src={% static 'js/particles.js' %}></script>
+  <script src={% static 'js/app.js' %}></script>
   <script type="text/javascript" src={% static 'js/recruiter_footer.js' %}></script>
 {% endblock %}

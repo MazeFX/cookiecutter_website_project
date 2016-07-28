@@ -5,7 +5,7 @@
 {% load staticfiles crispy_forms_tags %}
 
 {% block title %}
-  Send Email
+  Verstuur Email
 {% endblock %}
 
 {% block meta %}
@@ -19,9 +19,12 @@
 {% block header %}
   <header class="navbar-inverse" id="recruiter-header">
 
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+
     <div class="container">
       <div class="align-center text-center" id="header-title">
-        <h1>Send Email</h1>
+          <span id="header-title-begin">Verstuur</span><span id="header-title-end"> Email</span>
       </div>
     </div>
 
@@ -29,10 +32,16 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-
-    {% crispy form %}
-
+  <div class="row main-row color-blue">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-xs-12 col-md-8">
+          {% crispy form %}
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
   </div>
 {% endblock %}
 
@@ -41,5 +50,7 @@
 {% endblock %}
 
 {% block js-addin %}
+  <script src={% static 'js/particles.js' %}></script>
+  <script src={% static 'js/app.js' %}></script>
   <script type="text/javascript" src={% static 'js/recruiter_footer.js' %}></script>
 {% endblock %}

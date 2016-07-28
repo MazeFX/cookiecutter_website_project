@@ -63,9 +63,9 @@ class RecruiterVisitTest(FunctionalTest):
 
         # Dave is send to a page with an send email form
         # He notices the page title and header mention send email
-        self.assertIn('Send Email', self.browser.title)
+        self.assertIn('Verstuur Email', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('Send Email', header_text)
+        self.assertIn('Verstuur Email', header_text)
 
         # He is invited to enter his full name.
         fullname_div = self.browser.find_element_by_id('div_id_fullname')
@@ -121,9 +121,9 @@ class RecruiterVisitTest(FunctionalTest):
             submit_button.click()
 
         # Dave is sent to a conformation page that the email has been sent.
-        self.assertIn('Email Sent', self.browser.title)
+        self.assertIn('Email Verstuurd', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('Email Sent', header_text)
+        self.assertIn('Email Verstuurd', header_text)
 
         # And another link for going back to the recruiter page.
         self.fail('Finish the test!')
