@@ -98,15 +98,6 @@ h3 {
   .content-mail-button {
     width: 100%;
     height: 5em; } }
-.color-blue {
-  background-color: #4f759a; }
-
-.color-grngry {
-  background-color: #92cab1; }
-
-.color-green {
-  background-color: #a2faa3; }
-
 .parallax-viewport {
   position: relative;
   /* relative, absolute, fixed */
@@ -136,6 +127,30 @@ h3 {
   color: #333;
   text-decoration: none; }
 
+.home-button {
+  display: block;
+  background-color: #4f759a;
+  padding: 0 2.5em 0.5em 2.5em;
+  color: #333; }
+
+.home-button:hover {
+  background-color: #5d5179;
+  color: #333;
+  text-decoration: none; }
+
+.contact-form-container {
+  padding: 1em; }
+
+.spacer-row {
+  height: 50px;
+  padding: 1em;
+  margin-left: 0;
+  margin-right: 0; }
+
+.content-home-button {
+  width: 100%;
+  height: 10em; }
+
 .footer-logo {
   width: 100px;
   height: 100px;
@@ -160,7 +175,6 @@ h3 {
 #footer-push {
   height: 255px; }
 
-/* The company logo */
 .footer-distributed h3 {
   color: #ffffff;
   font: normal 36px 'Cookie', cursive;
@@ -216,6 +230,15 @@ h3 {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
+
+.color-blue {
+  background-color: #4f759a; }
+
+.color-grngry {
+  background-color: #92cab1; }
+
+.color-green {
+  background-color: #a2faa3; }
 
 .alert-debug {
   background-color: #fff;

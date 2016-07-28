@@ -32,8 +32,8 @@ class EmailValidationTest(FunctionalTest):
         url = urllib.parse.urljoin(self.server_url, '/contact/')
         self.browser.get(url)
 
-        self.assertIn('Send Email', self.browser.title)
+        self.assertIn('Verstuur Email', self.browser.title)
         # Dave forgets to enter a name
         # TODO - Finish user story for wrong information
 
-        self.fail('write me!')
+        self.fail('Finish the Test!')
