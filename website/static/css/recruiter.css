@@ -3,7 +3,7 @@
   Creator: MazeFX
   Date: 14-7-2016
 
-  CSS for recruiter page layout rendering.
+  CSS for recruiter pages layout rendering.
   Compiled from scss using Ruby scss.
  */
 #recruiter-header {
@@ -100,7 +100,6 @@ h3 {
     height: 5em; } }
 .parallax-viewport {
   position: relative;
-  /* relative, absolute, fixed */
   overflow: hidden;
   width: 20em;
   height: 20em;
@@ -137,6 +136,9 @@ h3 {
   background-color: #5d5179;
   color: #333;
   text-decoration: none; }
+
+.form-control {
+  font-size: 1em; }
 
 .contact-form-container {
   padding: 1em; }
