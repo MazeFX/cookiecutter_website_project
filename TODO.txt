@@ -28,8 +28,6 @@ Goal list.
 #                                                                        #
 ##########################################################################
 
-* TODO - finish function test for sending an email with the websites mail server
-
 * TODO - Check on image sizes and optimize for loading
 
 * TODO - add new task structure to all files when necessary

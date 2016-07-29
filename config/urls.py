@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# GIFS - Clean up the file
-# DOCS - Write some documentation
-
 """
 File: urls.py
 Creator: MazeFX
@@ -12,6 +9,8 @@ Main url resolver as from cookiecutter-django.
 Added following resolver patterns:
 
 * ('/') -> pages.home_page
+* ('/contact/') -> pages.contact_page
+* ('/contact/email_sent/') -> pages.email_sent_page
 """
 
 

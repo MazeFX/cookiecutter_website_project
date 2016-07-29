@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# GIFS - Clean up the file
 # DOCS - Write some documentation
 
 """
@@ -14,6 +13,7 @@ Python Test docstring.
 
 from django import forms
 from django.core.validators import EmailValidator
+
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
