@@ -32,8 +32,53 @@ class EmailValidationTest(FunctionalTest):
         url = urllib.parse.urljoin(self.server_url, '/contact/')
         self.browser.get(url)
 
+        # He at least verifies that it is the correct page
         self.assertIn('Verstuur Email', self.browser.title)
-        # Dave forgets to enter a name
-        # TODO - Finish user story for wrong information
 
-        self.fail('Finish the Test!')
+        # Dave doesn't enter anything and submits right away
+        # (For testing all fields on empty value validation)
+        submit_button = self.browser.find_element_by_id('submit-id-submit')
+        with self.wait_for_page_load(timeout=10):
+            submit_button.click()
+
+        # He sees that all fields have error messages.
+        fullname_error = self.browser.find_element_by_id('error_1_id_fullname').text
+        self.assertEqual('Hey je moet wel invullen!', fullname_error)
+
+        email_error = self.browser.find_element_by_id('error_1_id_email').text
+        self.assertEqual('Hey je moet wel invullen!', email_error)
+
+        subject_error = self.browser.find_element_by_id('error_1_id_subject').text
+        self.assertEqual('Hey je moet wel invullen!', subject_error)
+
+        message_error = self.browser.find_element_by_id('error_1_id_message').text
+        self.assertEqual('Hey je moet wel invullen!', message_error)
+
+        # He then enters an invalid email address
+        email_input = self.browser.find_element_by_id('id_email')
+        email_input.send_keys('Not an email')
+
+        submit_button = self.browser.find_element_by_id('submit-id-submit')
+        with self.wait_for_page_load(timeout=10):
+            submit_button.click()
+
+        email_error = self.browser.find_element_by_id('error_1_id_email').text
+        self.assertEqual('Vul een geldig email adres in.', email_error)
+
+        # He tries again with almost an email address
+        email_input = self.browser.find_element_by_id('id_email')
+        email_input.clear()
+        email_input.send_keys('Almost@email')
+
+        submit_button = self.browser.find_element_by_id('submit-id-submit')
+        with self.wait_for_page_load(timeout=10):
+            submit_button.click()
+
+        email_error = self.browser.find_element_by_id('error_1_id_email').text
+        self.assertEqual('Vul een geldig email adres in.', email_error)
+
+        # Dave enters a correct email address and the email is being sent.
+        # Although Dave failed to be a good user the validation check kept
+        # him from applying a incomplete or incorrect email.
+
+        # End of test
