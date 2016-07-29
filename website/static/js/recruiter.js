@@ -8,9 +8,15 @@
  */
 
 jQuery(document).ready(function(){
+
     jQuery('#parallax .parallax-layer')
     .parallax({
       mouseport: jQuery('#parallax')
     });
+
+    if ($(window).width() < 440) {
+        jQuery('.parallax-layer')
+        .trigger({ type: 'freeze', x: 0.5, y: 0.5, decay: 0 });
+    }
 });
 
