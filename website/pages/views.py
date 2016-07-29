@@ -32,7 +32,7 @@ def contact_page(request):
             email = EmailMessage(
                 "New contact form submission from recruiter mail.",
                 content,
-                "MazeFXwebsite@contactform.com",
+                "MazeFXwebsite@Sandbox1164858fa1dc4ce7bf986ef9a82f17cb.Mailgun.Org",
                 ['filoplast@gmail.com'],
                 headers={'Reply-To': reply_email}
             )
