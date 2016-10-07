@@ -72,3 +72,4 @@ cookiecutter_website_project/media/
 # Hitch directory
 tests/.hitch
 
+/C42_API_proxy_challenge/
