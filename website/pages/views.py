@@ -18,6 +18,8 @@ from website.pages.forms import ContactForm
 def home_page(request):
     return render(request, 'pages/home.html')
 
+def home_page_old(request):
+    return render(request, 'pages/home_old.html')
 
 def contact_page(request):
     form = ContactForm()

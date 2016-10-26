@@ -18,7 +18,7 @@ from django.template.loader import render_to_string, get_template
 from django.utils.html import escape
 
 
-from website.pages.views import home_page, contact_page, email_sent_page
+from website.pages.views import home_page, home_page_old, contact_page, email_sent_page
 from website.pages.forms import ContactForm, EMPTY_ITEM_ERROR
 
 
@@ -39,6 +39,25 @@ class HomePageTest(TestCase):
         response = self.client.get('/')
 
         self.assertTemplateUsed(response, 'pages/home.html')
+
+
+class HomePageOldTest(TestCase):
+
+    def test_home_old_url_resolves_to_home_page_old_view(self):
+        found = resolve('/home_old/')
+        self.assertEqual(found.func, home_page_old)
+
+    def test_home_page_old_returns_correct_html(self):
+        request = HttpRequest()
+        response = home_page(request)
+        expected_html = render_to_string('pages/home_old.html')
+
+        self.assertEqual(response.content.decode(), expected_html)
+
+    def test_home_page_old_renders_home_template(self):
+        response = self.client.get('/home_old/')
+
+        self.assertTemplateUsed(response, 'pages/home_old.html')
 
 
 class ContactTest(TestCase):
