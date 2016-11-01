@@ -4,12 +4,12 @@
 {% load staticfiles %}
 
 {% block title %}
-  IT's my future!
+  IT's what I develop!
 {% endblock %}
 
 {% block meta %}
   <!-- OGP proprties for LinkedIn -->
-  <meta property="og:title" content="IT's my future!"/>
+  <meta property="og:title" content="IT's what I develop!"/>
   <meta property="og:image" content="{% static 'images/ogp_image.png' %}" />
   <meta property="og:description" content="Allesdurver binnen de IT en nieuwe media, aangenaam! Hoe kan ik je helpen?"/>
   <meta property="og:url" content="https://mazefx.pythonanywhere.com"/>
@@ -19,11 +19,11 @@
 {% endblock %}
 
 {% block css-addin %}
-  <link rel="stylesheet" type="text/css" href={% static 'css/recruiter.css' %} />
+  <link rel="stylesheet" type="text/css" href={% static 'css/developers.css' %} />
 {% endblock %}
 
 {% block header %}
-  {% include 'pages/recruiter_header.html' %}
+  {% include 'pages/header.html' %}
 {% endblock %}
 
 {% block content %}

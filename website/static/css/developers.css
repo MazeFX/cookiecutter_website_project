@@ -1,0 +1,281 @@
+/*
+  File: developers.scss
+  Creator: MazeFX
+  Date: 01-11-2016
+
+  CSS for developers pages layout rendering.
+  Compiled from scss using Ruby scss.
+ */
+#header {
+  height: 250px;
+  position: relative; }
+
+#header-title-begin,
+#header-title-end {
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: bold; }
+
+#header-title-begin {
+  font-size: 5em;
+  color: #92cab1; }
+
+#header-title-end {
+  font-size: 4em;
+  color: #571f4e; }
+
+@media (max-width: 440px) {
+  #header-title-begin {
+    font-size: 4em; }
+
+  #header-title-end {
+    font-size: 3em; } }
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  background-color: #fff;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%; }
+
+html {
+  position: relative;
+  height: 100%; }
+
+body {
+  font-family: 'Cabin', sans-serif;
+  font-size: 2em;
+  height: 100%; }
+
+/* Wrapper for page content to push down footer */
+#main-wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -255px;
+  /* the bottom margin is the negative value of the footer's height */ }
+
+h1 {
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: bold;
+  font-size: 2.5em; }
+
+@media (max-width: 440px) {
+  h1 {
+    font-size: 2.2em; } }
+h2 {
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: bold;
+  font-size: 1.8em; }
+
+h3 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 2.5rem;
+  margin-top: 0.2em;
+  margin-bottom: 0.6em; }
+
+.main-row {
+  padding: 1em;
+  margin-left: 0;
+  margin-right: 0; }
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.content-parallax {
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
+  max-height: 100%; }
+
+.col-no-padding {
+  padding-left: 0;
+  padding-right: 0; }
+
+@media (max-width: 768px) {
+  .row-eq-height {
+    display: block; }
+
+  .content-img {
+    width: 240px;
+    height: 240px; }
+
+  .content-mail-button {
+    width: 100%;
+    height: 5em; } }
+.parallax-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 20em;
+  height: 20em;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1em;
+  border: 3px solid #fff;
+  z-index: 10; }
+
+.parallax-layer {
+  position: absolute; }
+
+.parallax-bg {
+  background-color: #fff; }
+
+.mail-button {
+  display: block;
+  background-color: #4f759a;
+  padding: 0 2.5em 0.5em 2.5em;
+  color: #333; }
+
+.mail-button:hover {
+  background-color: #5d5179;
+  color: #333;
+  text-decoration: none; }
+
+.home-button {
+  display: block;
+  background-color: #4f759a;
+  padding: 0 2.5em 0.5em 2.5em;
+  color: #333; }
+
+.home-button:hover {
+  background-color: #5d5179;
+  color: #333;
+  text-decoration: none; }
+
+.form-control {
+  font-size: 1em; }
+
+.contact-form-container {
+  padding: 1em; }
+
+.spacer-row {
+  height: 50px;
+  padding: 1em;
+  margin-left: 0;
+  margin-right: 0; }
+
+.content-home-button {
+  width: 100%;
+  height: 10em; }
+
+.footer-logo {
+  width: 100px;
+  height: 100px;
+  max-width: 100%;
+  max-height: 100%; }
+
+.footer-logo img {
+  max-width: 100%;
+  max-height: 100%; }
+
+.footer-distributed {
+  position: relative;
+  background-color: #292c2f;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+  padding: 55px 50px;
+  min-height: 145px; }
+
+#footer-push {
+  height: 255px; }
+
+.footer-distributed h3 {
+  color: #ffffff;
+  font: normal 36px 'Cookie', cursive;
+  margin: 0; }
+
+.footer-distributed h3 span {
+  color: #5383d3; }
+
+.footer-distributed .footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit; }
+
+.footer-distributed .footer-company-about {
+  line-height: 20px;
+  color: #92999f;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0; }
+
+.footer-distributed .footer-company-about span {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px; }
+
+.footer-distributed .footer-icons {
+  margin-top: 25px; }
+
+.footer-distributed .footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px; }
+
+.align-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.color-blue {
+  background-color: #4f759a; }
+
+.color-grngry {
+  background-color: #92cab1; }
+
+.color-green {
+  background-color: #a2faa3; }
+
+.alert-debug {
+  background-color: #fff;
+  border-color: #d6e9c6;
+  color: #000; }
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48; }
+
+.navbar {
+  border-radius: 0px; }
+
+@media (max-width: 47.9em) {
+  .navbar-nav .nav-item {
+    display: inline-block;
+    float: none;
+    width: 100%; }
+
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0; }
+
+  .nav.navbar-nav.pull-xs-right {
+    float: none !important; } }
+[hidden][style="display: block;"] {
+  display: block !important; }
+
+/*# sourceMappingURL=developers.css.map */
