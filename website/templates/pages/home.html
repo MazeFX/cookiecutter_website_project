@@ -27,7 +27,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class="row main-row color-orange" id="row-top">
+  <div class="row main-row color-orange text-color-white" id="row-top">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
@@ -51,8 +51,12 @@
       <div class="row row-eq-height">
 
         <div class="col-xs-12 col-md-6 col-sm-push-6">
-          <div class="content-img">
-            <img class="align-center" src={% static 'images/gears.png' %} alt="Gears" />
+          <div class="profile-wrapper" data-ng-show="profileVm.isFiltered(['Fieldmanager PHP'])">
+            <div class="profile">
+
+              <img src={% static 'images/gears.png' %} alt="Gears"  class="img-responsive img-thumbnail">
+
+            </div>
           </div>
         </div>
 
