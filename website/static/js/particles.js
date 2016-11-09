@@ -479,7 +479,7 @@ var pJS = function(tag_id, params){
         if(pJS.tmp.img_type == 'svg'){
           var img_obj = p.img.obj;
         }else{
-          var flag = this.img.src.indexOf('i-particle')
+          var flag = this.img.src.indexOf('cloud4')
           if( flag != -1) {
             var img_selected = pJS.tmp.img_obj[0];
           }else{

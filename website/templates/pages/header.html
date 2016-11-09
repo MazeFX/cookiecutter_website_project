@@ -6,7 +6,22 @@
   Header for whole website.
 {% endcomment %}
 
-<header class="navbar-inverse" id="header">
+{% load sitetree %}
+
+<header id="header">
+  <nav class="custom-navbar">
+    <div class="navbar-inner collapse" id="exCollapsingNavbar">
+      {% sitetree_menu from "menu-tree" include "trunk" template "sitetree/menu_bootstrap.html" %}
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </nav>
+
+
 
   <!-- particles.js container -->
   <div id="particles-js"></div>
@@ -16,5 +31,6 @@
         <span id="header-title-begin">IT</span><span id="header-title-end">'s what I develop!</span>
     </div>
   </div>
+
 
 </header>

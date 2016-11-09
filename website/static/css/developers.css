@@ -39,6 +39,26 @@
   background-size: cover;
   background-position: 50% 50%; }
 
+.custom-navbar {
+  position: fixed;
+  right: 2.5em;
+  z-index: 10; }
+
+.navbar-toggler {
+  float: right;
+  background-color: #FF9800;
+  border-bottom-left-radius: 0.8em;
+  border-bottom-right-radius: 0.8em;
+  padding: 0.9em;
+  cursor: pointer;
+  cursor: hand;
+  outline: none; }
+
+ul, ul:hover {
+  border: 3px solid #FF9800;
+  border-bottom-left-radius: 0.8em;
+  background-color: #fff; }
+
 html {
   position: relative;
   height: 100%; }
@@ -151,6 +171,14 @@ p {
 
 .form-control {
   font-size: 1em; }
+
+.icon-bar {
+  margin-bottom: 2px;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px; }
 
 .img-thumbnail {
   padding: 12px; }

@@ -27,6 +27,7 @@ $developer-mediumorange: #F57C00;
 $developer-darkorange: #E65100;
 
 $developer-blue: #4db4ff;
+$link-blue: #337ab7;
 
 // Alert colors
 
@@ -88,6 +89,33 @@ $red: #b94a48;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+}
+
+// Navigation section
+// -----------------------------;
+
+.custom-navbar {
+  position: fixed;
+  right: 2.5em;
+  z-index: 10;
+}
+
+.navbar-toggler {
+  float: right;
+  background-color: $developer-orange;
+  border-bottom-left-radius: 0.8em;
+  border-bottom-right-radius: 0.8em;
+  padding: 0.9em;
+  cursor: pointer;
+  cursor: hand;
+  outline: none;
+}
+
+
+ul, ul:hover {
+  border: 3px solid $developer-orange;
+  border-bottom-left-radius: 0.8em;
+  background-color: $white;
 }
 
 // Body section
@@ -241,6 +269,15 @@ p {
 }
 
 // Temp Elelements for testing
+
+.icon-bar {
+    margin-bottom: 2px;
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 1px;
+}
 
 .img-thumbnail {
   padding: 12px;

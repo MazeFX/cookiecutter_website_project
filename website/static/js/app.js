@@ -18,7 +18,7 @@ particlesJS('particles-js',
     {
       "particles": {
         "number": {
-          "value": 20,
+          "value": 15,
           "density": {
             "enable": true,
             "value_area": 800
@@ -28,7 +28,7 @@ particlesJS('particles-js',
           "value": "#FFF"
         },
         "shape": {
-          "type": ["circle", "image"],
+          "type": ["image"],
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -37,10 +37,12 @@ particlesJS('particles-js',
             "nb_sides": 5
           },
           "image": {
-            "src": ["{% static 'images/i-particle.png' %}",
-                    "{% static 'images/t-particle.png' %}"],
-            "width": 100,
-            "height": 100
+            "src": ["{% static 'images/cloud1.png' %}",
+                    "{% static 'images/cloud2.png' %}",
+                    "{% static 'images/cloud3.png' %}",
+                    "{% static 'images/cloud4.png' %}"],
+            "width": 600,
+            "height": 600
           }
         },
         "opacity": {
@@ -54,12 +56,12 @@ particlesJS('particles-js',
           }
         },
         "size": {
-          "value": 15,
-          "random": true,
+          "value": 35,
+          "random": false,
           "anim": {
             "enable": false,
             "speed": 40,
-            "size_min": 10,
+            "size_min": 30,
             "sync": false
           }
         },
@@ -72,7 +74,7 @@ particlesJS('particles-js',
         },
         "move": {
           "enable": true,
-          "speed": 2,
+          "speed": 0.5,
           "direction": "none",
           "random": false,
           "straight": false,
