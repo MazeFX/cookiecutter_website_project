@@ -38,11 +38,12 @@ particlesJS('particles-js',
           },
           "image": {
             "src": ["{% static 'images/cloud1.png' %}",
+                    "{% static 'images/cloud4.png' %}",
+                    "{% static 'images/cloud-developer.png' %}",
                     "{% static 'images/cloud2.png' %}",
-                    "{% static 'images/cloud3.png' %}",
-                    "{% static 'images/cloud4.png' %}"],
-            "width": 600,
-            "height": 600
+                    "{% static 'images/cloud3.png' %}"],
+            "width": 210,
+            "height": 210
           }
         },
         "opacity": {
@@ -56,7 +57,7 @@ particlesJS('particles-js',
           }
         },
         "size": {
-          "value": 35,
+          "value": 60,
           "random": false,
           "anim": {
             "enable": false,
