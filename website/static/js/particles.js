@@ -381,7 +381,6 @@ var pJS = function(tag_id, params){
       var sh = pJS.particles.shape;
       if(sh.image.src instanceof Array) {
         var img_selected = sh.image.src[Math.round(Math.random() * (sh.image.src.length - 1))];
-        console.log('Selected cloud = ' + img_selected)
       }else{
         var img_selected = sh.image.src;
       }

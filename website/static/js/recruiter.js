@@ -19,19 +19,19 @@ jQuery(document).ready(function(){
         .trigger({ type: 'freeze', x: 0.5, y: 0.5, decay: 0 });
     }
 
-    jQuery('.navbar-toggler').hover(
-        function() {
-            jQuery('.navbar-toggler').trigger('click');
-        }, function() {
-            jQuery('.navbar-toggler').trigger('click');
-        }
-    );
-
-    jQuery('#exCollapsingNavbar').hover(
-        function() {
-        }, function() {
-            jQuery('.navbar-toggler').trigger('click');
-        }
-    );
+    // jQuery('.navbar-toggler').hover(
+    //     function() {
+    //         jQuery('.navbar-toggler').trigger('click');
+    //     }, function() {
+    //         jQuery('.navbar-toggler').trigger('click');
+    //     }
+    // );
+    //
+    // jQuery('#exCollapsingNavbar').hover(
+    //     function() {
+    //     }, function() {
+    //         jQuery('.navbar-toggler').trigger('click');
+    //     }
+    // );
 });
 
