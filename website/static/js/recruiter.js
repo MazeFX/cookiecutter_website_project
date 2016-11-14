@@ -22,11 +22,8 @@ jQuery(document).ready(function(){
 
     jQuery('.dropdown').hover(
         function() {
-            // jQuery('.dropdown-menu-wrapper').height(jQuery('.dropdown-menu').height() + 3);
-            var $dropDownMenuWidth2 = jQuery('.dropdown-menu').width() + 3;
-            console.log('Current width of dropDownMenu: ' + $dropDownMenuWidth2);
-
-            jQuery('.dropdown-menu-wrapper').width($dropDownMenuWidth2);
+            var $dropDownMenuWidth = jQuery('.dropdown-menu').width() + 6;
+            jQuery('.dropdown-menu-wrapper').width($dropDownMenuWidth);
             console.log('setting width on hover in:  0');
 
         }, function() {

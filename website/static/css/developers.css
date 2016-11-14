@@ -118,6 +118,8 @@
   display: block;
   border-top-left-radius: 0.8em;
   border-bottom-left-radius: 0.8em;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   -moz-transition: all 1s ease-in-out, left 1.5s ease-in-out;
   -webkit-transition: all 1s ease-in-out, left 1.5s ease-in-out;
   -moz-transition: all 1s ease-in-out, left 1.5s ease-in-out;
@@ -130,7 +132,7 @@
   visibility: visible;
   margin-top: 0;
   padding: 0;
-  border-width: 3px 0 3px 3px;
+  border-width: 3px;
   border-style: solid;
   border-color: #FF9800;
   border-top-left-radius: 16px;
@@ -256,13 +258,13 @@ p {
 
 .mail-button {
   display: block;
-  background-color: #4f759a;
+  background-color: #4db4ff;
   padding: 0 2.5em 0.5em 2.5em;
-  color: #333; }
+  color: #fff; }
 
 .mail-button:hover {
-  background-color: #5d5179;
-  color: #333;
+  background-color: #337ab7;
+  color: #fff;
   text-decoration: none; }
 
 .home-button {
@@ -333,27 +335,38 @@ p {
   max-width: 100%;
   max-height: 100%; }
 
+.footer-logo-wrapper {
+  background-color: #fff; }
+
 .footer-distributed {
   position: relative;
-  background-color: #292c2f;
+  background-color: #4db4ff;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;
-  padding: 55px 50px;
+  padding: 30px 60px;
   min-height: 145px; }
 
+.footer-logo-wrapper .img-thumbnail {
+  padding: 0; }
+
 #footer-push {
-  height: 255px; }
+  height: 200px; }
 
 .footer-distributed h3 {
-  color: #ffffff;
+  color: #FF9800;
   font: normal 36px 'Cookie', cursive;
   margin: 0; }
 
+.footer-company-about-wrapper {
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  padding: 8px; }
+
 .footer-distributed h3 span {
-  color: #5383d3; }
+  color: #000; }
 
 .footer-distributed .footer-links a {
   display: inline-block;
@@ -370,7 +383,7 @@ p {
 
 .footer-distributed .footer-company-about span {
   display: block;
-  color: #ffffff;
+  color: #FF9800;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px; }

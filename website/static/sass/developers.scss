@@ -184,6 +184,8 @@ $red: #b94a48;
   display: block;
   border-top-left-radius: 0.8em;
   border-bottom-left-radius: 0.8em;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   -moz-transition: all 1s ease-in-out, left 1.5s ease-in-out;
   -webkit-transition: all 1s ease-in-out, left 1.5s ease-in-out;
   -moz-transition: all 1s ease-in-out, left 1.5s ease-in-out;
@@ -197,7 +199,7 @@ $red: #b94a48;
   visibility: visible;
   margin-top: 0;
   padding: 0;
-  border-width: 3px 0 3px 3px;
+  border-width: 3px;
   border-style: solid;
   border-color: $developer-orange;
   border-top-left-radius: 16px;
@@ -360,14 +362,14 @@ p {
 
 .mail-button {
   display: block;
-  background-color: $blue;
+  background-color: $developer-blue;
   padding: 0 2.5em 0.5em 2.5em;
-  color: $text-color;
+  color: $white;
 }
 
 .mail-button:hover {
-  background-color: $light-purple;
-  color: $text-color;
+  background-color: $link-blue;
+  color: $white;
   text-decoration: none;
 }
 
@@ -457,41 +459,55 @@ p {
 // -----------------------------
 
 .footer-logo {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
   max-width:100%;
-    max-height:100%;
+  max-height:100%;
 }
 
 .footer-logo img{
-    max-width:100%;
-    max-height:100%;
+  max-width:100%;
+  max-height:100%;
+}
+
+.footer-logo-wrapper {
+  background-color: $white;
 }
 
 .footer-distributed{
   position: relative;
-	background-color: #292c2f;
+	background-color: $developer-blue;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-	padding: 55px 50px;
+	padding: 30px 60px;
   min-height: 145px;
 }
 
+.footer-logo-wrapper .img-thumbnail {
+  padding: 0;
+}
+
 #footer-push{
-  height: 255px;
+  height: 200px;
 }
 
 .footer-distributed h3{
-	color:  #ffffff;
+	color:  $developer-orange;
 	font: normal 36px 'Cookie', cursive;
 	margin: 0;
 }
 
+.footer-company-about-wrapper {
+  background-color: $white;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  padding: 8px;
+}
+
 .footer-distributed h3 span{
-	color:  #5383d3;
+	color:  $black;
 }
 
 .footer-distributed .footer-links a{
@@ -511,7 +527,7 @@ p {
 
 .footer-distributed .footer-company-about span {
   display: block;
-  color: #ffffff;
+  color: $developer-orange;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px;
