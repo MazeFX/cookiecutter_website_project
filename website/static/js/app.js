@@ -38,10 +38,10 @@ particlesJS('particles-js',
           },
           "image": {
             "src": ["{% static 'images/cloud1.png' %}",
-                    "{% static 'images/cloud4.png' %}",
-                    "{% static 'images/cloud-developer.png' %}",
                     "{% static 'images/cloud2.png' %}",
-                    "{% static 'images/cloud3.png' %}"],
+                    "{% static 'images/cloud3.png' %}",
+                    "{% static 'images/cloud4.png' %}",
+                    "{% static 'images/cloud-developer.png' %}"],
             "width": 210,
             "height": 210
           }

@@ -1,7 +1,7 @@
 {# DOCS - Write some documentation and tags #}
 
 {% extends "base.html" %}
-{% load staticfiles crispy_forms_tags %}
+{% load staticfiles crispy_forms_tags sitetree %}
 
 {% block title %}
   Verstuur Email
@@ -12,12 +12,22 @@
 {% endblock %}
 
 {% block css-addin %}
-  <link rel="stylesheet" type="text/css" href={% static 'css/recruiter.css' %} />
+  <link rel="stylesheet" type="text/css" href={% static 'css/developers.css' %} />
 {% endblock %}
 
 {% block header %}
-  <header class="navbar-inverse" id="recruiter-header">
+  <header id="header">
+    <nav class="custom-navbar">
+      <div class="navbar-inner collapse" id="exCollapsingNavbar">
+        {% sitetree_menu from "menu-tree" include "trunk" template "pages/menu_bootstrap.html" %}
+      </div>
 
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </nav>
     <!-- particles.js container -->
     <div id="particles-js"></div>
 
@@ -31,11 +41,11 @@
 {% endblock %}
 
 {% block content %}
-  <div class="row main-row color-blue">
+  <div class="row main-row color-orange">
     <div class="container">
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-xs-12 col-md-8 color-grngry contact-form-container">
+        <div class="col-xs-12 col-md-8 contact-form-container">
           {% crispy form %}
         </div>
         <div class="col-md-2"></div>
@@ -45,11 +55,13 @@
 {% endblock %}
 
 {% block footer %}
-    {% include 'pages/recruiter_footer.html' %}
+    {% include 'pages/developer_footer.html' %}
 {% endblock %}
 
 {% block js-addin %}
+  <script type="text/javascript" src={% static 'js/jquery.min.js' %}></script>
   <script src={% static 'js/particles.js' %}></script>
   <script src={% static 'js/app.js' %}></script>
-  <script type="text/javascript" src={% static 'js/recruiter_footer.js' %}></script>
+  <script type="text/javascript" src={% static 'js/recruiter.js' %}></script>
+  <script type="text/javascript" src={% static 'js/main_footer.js' %}></script>
 {% endblock %}

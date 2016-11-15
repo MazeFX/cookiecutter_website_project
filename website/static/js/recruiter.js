@@ -9,10 +9,12 @@
 
 jQuery(document).ready(function(){
 
-    jQuery('#parallax .parallax-layer')
-    .parallax({
-      mouseport: jQuery('#parallax')
-    });
+    if ( $( "#parallax" ).length ) {
+        jQuery('#parallax .parallax-layer')
+            .parallax({
+                mouseport: jQuery('#parallax')
+            });
+    }
 
     if ($(window).width() < 440) {
         jQuery('.parallax-layer')
@@ -24,11 +26,9 @@ jQuery(document).ready(function(){
         function() {
             var $dropDownMenuWidth = jQuery('.dropdown-menu').width() + 6;
             jQuery('.dropdown-menu-wrapper').width($dropDownMenuWidth);
-            console.log('setting width on hover in:  0');
 
         }, function() {
             jQuery('.dropdown-menu-wrapper').width(0);
-            console.log('setting width on hover out: 0');
         }
     );
 

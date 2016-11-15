@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/developer-favicon-16x16.png' %}">
   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/developer-favicon-32x32.png' %}">
   <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/developer-favicon-96x96.png' %}">
-  <link rel="icon" sizes="192x192" href="{% static 'images/icon-192x192.png' %}">
+  <link rel="icon" sizes="192x192" href="{% static 'images/icon-orange-192x192.png' %}">
 
 {% endblock %}
 
@@ -29,7 +29,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include 'pages/header.html' %}
+  {% include 'pages/developer_header.html' %}
 {% endblock %}
 
 {% block content %}
@@ -156,13 +156,13 @@
               <div class="parallax-layer parallax-bg" style="width:650px; height:650px;">
               </div>
               <div class="parallax-layer" style="width:500px; height:500px;">
-                <img src={% static 'images/parallax-layer1.png' %} alt="" />
+                <img src={% static 'images/parallax-layer1-developer.png' %} alt="" />
               </div>
               <div class="parallax-layer" style="width:475px; height:475px;">
-                <img src={% static 'images/parallax-layer2.png' %} alt="" />
+                <img src={% static 'images/parallax-layer2-developer.png' %} alt="" />
               </div>
               <div class="parallax-layer" style="width:450px; height:450px;">
-                <img src={% static 'images/parallax-layer3.png' %} alt="" />
+                <img src={% static 'images/parallax-layer3-developer.png' %} alt="" />
               </div>
               <div class="parallax-layer" style="width:425px; height:425px;">
                 <img src={% static 'images/parallax-mugshot.png' %} alt="" />
@@ -201,7 +201,7 @@
               <h2 class="text-center">HTML</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/html-progress.png' %} alt="HTML-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-html.png' %} alt="HTML-progress" />
             </div>
           </div>
           <div class="row row-eq-height">
@@ -209,7 +209,7 @@
               <h2 class="text-center">MySQL</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/mysql-progress.png' %} alt="MySQL-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-mysql.png' %} alt="MySQL-progress" />
             </div>
           </div>
           <div class="row row-eq-height">
@@ -217,7 +217,7 @@
               <h2 class="text-center">Python</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/python-progress.png' %} alt="Python-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-python.png' %} alt="Python-progress" />
             </div>
           </div>
         </div>
@@ -228,7 +228,7 @@
               <h2 class="text-center">CSS</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/css-progress.png' %} alt="CSS-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-css.png' %} alt="CSS-progress" />
             </div>
           </div>
           <div class="row row-eq-height">
@@ -236,7 +236,7 @@
               <h2 class="text-center">PHP</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/php-progress.png' %} alt="PHP-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-php.png' %} alt="PHP-progress" />
             </div>
           </div>
           <div class="row row-eq-height">
@@ -244,7 +244,7 @@
               <h2 class="text-center">Java</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/java-progress.png' %} alt="Java-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-java.png' %} alt="Java-progress" />
             </div>
           </div>
         </div>
@@ -280,7 +280,7 @@
 {% endblock %}
 
 {% block footer %}
-    {% include 'pages/recruiter_footer.html' %}
+    {% include 'pages/developer_footer.html' %}
 {% endblock %}
 
 {% block js-addin %}
@@ -290,5 +290,5 @@
   <script type="text/javascript" src={% static 'js/jquery.event.frame.js' %} defer></script>
   <script type="text/javascript" src={% static 'js/jquery.parallax.min.js' %}></script>
   <script type="text/javascript" src={% static 'js/recruiter.js' %}></script>
-  <script type="text/javascript" src={% static 'js/recruiter_footer.js' %}></script>
+  <script type="text/javascript" src={% static 'js/main_footer.js' %}></script>
 {% endblock %}

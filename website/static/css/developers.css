@@ -120,11 +120,11 @@
   border-bottom-left-radius: 0.8em;
   border-bottom-right-radius: 0;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-  -moz-transition: all 1s ease-in-out, left 1.5s ease-in-out;
-  -webkit-transition: all 1s ease-in-out, left 1.5s ease-in-out;
-  -moz-transition: all 1s ease-in-out, left 1.5s ease-in-out;
-  -o-transition: all 1s ease-in-out, left 1.5s ease-in-out;
-  transition: all 1s ease-in-out, left 1.5s ease-in-out; }
+  -moz-transition: all 0.4s ease-in-out, left 1s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out, left 1s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out, left 1s ease-in-out;
+  -o-transition: all 0.4s ease-in-out, left 1s ease-in-out;
+  transition: all 0.4s ease-in-out, left 1s ease-in-out; }
 
 .dropdown-menu {
   position: relative;
@@ -313,7 +313,8 @@ p {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); } }
 .contact-form-container {
-  padding: 1em; }
+  padding: 1em;
+  background-color: #fff; }
 
 .spacer-row {
   height: 50px;
