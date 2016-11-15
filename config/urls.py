@@ -28,6 +28,7 @@ from website.pages import views as page_views
 urlpatterns = [
     url(r'^$', page_views.home_page, name='home'),
     url(r'^home_old', page_views.home_page_old, name='home_old'),
+    url(r'^portfolio/coming_soon/$', page_views.coming_soon_page, name='coming_soon'),
     url(r'^contact/$', page_views.contact_page, name='contact'),
     url(r'^contact/email_sent/$', page_views.email_sent_page, name='email_sent'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),

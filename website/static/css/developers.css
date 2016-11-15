@@ -269,13 +269,13 @@ p {
 
 .home-button {
   display: block;
-  background-color: #4f759a;
+  background-color: #4db4ff;
   padding: 0 2.5em 0.5em 2.5em;
-  color: #333; }
+  color: #fff; }
 
 .home-button:hover {
-  background-color: #5d5179;
-  color: #333;
+  background-color: #337ab7;
+  color: #fff;
   text-decoration: none; }
 
 .form-control {
@@ -339,6 +339,9 @@ p {
 .footer-logo-wrapper {
   background-color: #fff; }
 
+@media (max-width: 768px) {
+  .footer-logo-wrapper {
+    padding-bottom: 12px; } }
 .footer-distributed {
   position: relative;
   background-color: #4db4ff;
@@ -428,6 +431,9 @@ p {
 
 .text-color-white {
   color: #fff; }
+
+.text-color-orange {
+  color: #FF9800; }
 
 .alert-debug {
   background-color: #fff;
