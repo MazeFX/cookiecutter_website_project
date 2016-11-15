@@ -21,6 +21,9 @@ def home_page(request):
 def home_page_old(request):
     return render(request, 'pages/home_old.html')
 
+def coming_soon_page(request):
+    return render(request, 'pages/coming_soon.html')
+
 def contact_page(request):
     form = ContactForm()
     if request.method == 'POST':

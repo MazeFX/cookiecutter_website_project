@@ -10,12 +10,18 @@
 {% block meta %}
   <!-- OGP proprties for LinkedIn -->
   <meta property="og:title" content="IT's what I develop!"/>
-  <meta property="og:image" content="{% static 'images/ogp_image.png' %}" />
+  <meta property="og:image" content="{% static 'images/ogp_image-developer.png' %}" />
   <meta property="og:description" content="Allesdurver binnen de IT en nieuwe media, aangenaam! Hoe kan ik je helpen?"/>
   <meta property="og:url" content="https://mazefx.pythonanywhere.com"/>
   <!-- Meta for Chrome Android -->
-  <meta name="theme-color" content="#92cab1">
-  <link rel="icon" sizes="192x192" href="{% static 'images/icon-192x192.png' %}">
+  <meta name="theme-color" content="#FF9800">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/developer-favicon-16x16.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/developer-favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/developer-favicon-96x96.png' %}">
+  <link rel="icon" sizes="192x192" href="{% static 'images/icon-orange-192x192.png' %}">
+
 {% endblock %}
 
 {% block css-addin %}
@@ -23,11 +29,11 @@
 {% endblock %}
 
 {% block header %}
-  {% include 'pages/header.html' %}
+  {% include 'pages/developer_header.html' %}
 {% endblock %}
 
 {% block content %}
-  <div class="row main-row color-blue" id="row-top">
+  <div class="row main-row color-orange text-color-white" id="row-top">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
@@ -52,7 +58,12 @@
 
         <div class="col-xs-12 col-md-6 col-sm-push-6">
           <div class="content-img">
-            <img class="align-center" src={% static 'images/gears.png' %} alt="Gears" />
+            <div class="align-center">
+              <div class="img-thumbnail-wrapper first">
+
+                <img src={% static 'images/gears-orange.png' %} alt="Gears"  class="img-responsive img-thumbnail">
+              </div>
+            </div>
           </div>
         </div>
 
@@ -64,8 +75,9 @@
             toen ik 11 was en vanaf dat moment was er een passie geboren.
             Die passie is nooit meer weggegaan en heeft er voor gezorgd dat
             ik veel heb mogen leren over software development en IT in de
-            afgelopen jaren. Nu heb ik besloten de stap te nemen om ook in
-            mijn werk mij bezig te gaan houden met mijn passie.
+            afgelopen jaren. Als developer bij <span class="text-color-orange">Developers.nl</span>
+            probeer ik elke dag weer deze kennis en vaardigheden zo goed
+            mogelijk in te zetten voor de opdrachtgever.
           </p>
         </div>
 
@@ -76,20 +88,26 @@
 
         <div class="col-xs-12 col-md-6">
           <div class="content-img">
-            <img class="align-center" src={% static 'images/sitting-man.png' %} alt="Gears" />
+            <div class="align-center">
+              <div class="img-thumbnail-wrapper second">
+
+                <img src={% static 'images/sitting-man-orange.png' %} alt="Sitting_man"  class="img-responsive img-thumbnail">
+
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="col-xs-12 col-md-6">
           <h2>Constante zelfontwikkeling</h2>
           <p>
-            Naast de studie Informatica die ik aan de Universiteit Utrecht
-            heb gevolgd maar niet heb afgemaakt en een aantal recente certificaten
-            op het gebied van software development ben ik constant bezig
-            met het uitbreiden van mijn kennis. Ik lees veel boeken over het vak,
-            houd mijzelf op de hoogte van nieuwe ontwikkelingen en maak in
-            mijn vrije tijd websites voor kennissen en vrienden. Zelf ben ik
-            een fan geworden van Python en steek hier graag mijn vrije uurtjes in.
+            Naast de studie Informatiekunde die ik aan de Universiteit Utrecht
+            heb gevolgd en een aantal recente certificaten op het gebied
+            van software development ben ik constant bezig met het uitbreiden
+            van mijn kennis. Ik lees veel boeken over het vak, houd mijzelf
+            op de hoogte van nieuwe ontwikkelingen en maak in mijn vrije
+            tijd websites voor kennissen en vrienden. Zelf ben ik een fan
+            geworden van Python en steek hier graag mijn vrije uurtjes in.
           </p>
         </div>
 
@@ -100,7 +118,13 @@
 
         <div class="col-xs-12 col-md-6 col-sm-push-6">
           <div class="content-img">
-            <img class="img-responsive align-center" src={% static 'images/arrow.png' %} alt="Gears" />
+            <div class="align-center">
+              <div class="img-thumbnail-wrapper third">
+
+                <img src={% static 'images/arrow-orange.png' %} alt="Arrow_left"  class="img-responsive img-thumbnail">
+
+              </div>
+            </div>
           </div>
         </div>
 
@@ -112,9 +136,9 @@
             zijn ben ik op zoek naar een tof bedrijf die mij kan begeleiden in
             het werken in een IT omgeving. Ik zou graag willen meewerken aan
             toffe projecten die technisch uitdagend zijn en die mij pushen om
-            constant te verbeteren. Ik ben er zeker van dat met begeleiding
-            ik snel een zelfstandig niveau kan bereiken. Wat denk je, past dat in
-            jullie bedrijf?
+            constant te verbeteren. Ik ben er zeker van dat ik een positieve
+            bijdrage kan leveren aan het project en het bedrijf. Wat denk je,
+            past dat in jullie organisatie?
           </p>
         </div>
 
@@ -122,7 +146,7 @@
     </div>
   </div>
 
-  <div class="row main-row color-grngry" id="row-middle">
+  <div class="row main-row color-blue text-color-white" id="row-middle">
     <div class="container">
       <div class="row row-eq-height ">
 
@@ -133,13 +157,13 @@
               <div class="parallax-layer parallax-bg" style="width:650px; height:650px;">
               </div>
               <div class="parallax-layer" style="width:500px; height:500px;">
-                <img src={% static 'images/parallax-layer1.png' %} alt="" />
+                <img src={% static 'images/parallax-layer1-developer.png' %} alt="" />
               </div>
               <div class="parallax-layer" style="width:475px; height:475px;">
-                <img src={% static 'images/parallax-layer2.png' %} alt="" />
+                <img src={% static 'images/parallax-layer2-developer.png' %} alt="" />
               </div>
               <div class="parallax-layer" style="width:450px; height:450px;">
-                <img src={% static 'images/parallax-layer3.png' %} alt="" />
+                <img src={% static 'images/parallax-layer3-developer.png' %} alt="" />
               </div>
               <div class="parallax-layer" style="width:425px; height:425px;">
                 <img src={% static 'images/parallax-mugshot.png' %} alt="" />
@@ -178,7 +202,7 @@
               <h2 class="text-center">HTML</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/html-progress.png' %} alt="HTML-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-html.png' %} alt="HTML-progress" />
             </div>
           </div>
           <div class="row row-eq-height">
@@ -186,7 +210,7 @@
               <h2 class="text-center">MySQL</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/mysql-progress.png' %} alt="MySQL-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-mysql.png' %} alt="MySQL-progress" />
             </div>
           </div>
           <div class="row row-eq-height">
@@ -194,7 +218,7 @@
               <h2 class="text-center">Python</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/python-progress.png' %} alt="Python-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-python.png' %} alt="Python-progress" />
             </div>
           </div>
         </div>
@@ -205,7 +229,7 @@
               <h2 class="text-center">CSS</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/css-progress.png' %} alt="CSS-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-css.png' %} alt="CSS-progress" />
             </div>
           </div>
           <div class="row row-eq-height">
@@ -213,7 +237,7 @@
               <h2 class="text-center">PHP</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/php-progress.png' %} alt="PHP-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-php.png' %} alt="PHP-progress" />
             </div>
           </div>
           <div class="row row-eq-height">
@@ -221,7 +245,7 @@
               <h2 class="text-center">Java</h2>
             </div>
             <div class="col-sm-7 col-md-8">
-              <img class="img-responsive align-center" src={% static 'images/java-progress.png' %} alt="Java-progress" />
+              <img class="img-responsive align-center" src={% static 'images/progress-developer-java.png' %} alt="Java-progress" />
             </div>
           </div>
         </div>
@@ -229,7 +253,7 @@
     </div>
   </div>
 
-  <div class="row main-row color-green" id="row-bottom">
+  <div class="row main-row color-orange text-color-white" id="row-bottom">
     <div class="container">
       <div class="row row-eq-height">
         <div class="col-xs-12 col-md-6">
@@ -238,7 +262,7 @@
             Mocht ik je interesse hebben gewekt, neem dan contact met mij op
             via de mail of een bericht via LinkedIn. Dan beantwoord ik al je
             vragen, en natuurlijk kom ik langs om een kopje koffie te drinken
-            om meer te vertellen.
+            om meer te vertellen of breng ik je in contact met mijn collega's.
           </p>
         </div>
         <div class="col-xs-12 col-md-6">
@@ -257,7 +281,7 @@
 {% endblock %}
 
 {% block footer %}
-    {% include 'pages/recruiter_footer.html' %}
+    {% include 'pages/developer_footer.html' %}
 {% endblock %}
 
 {% block js-addin %}
@@ -267,5 +291,5 @@
   <script type="text/javascript" src={% static 'js/jquery.event.frame.js' %} defer></script>
   <script type="text/javascript" src={% static 'js/jquery.parallax.min.js' %}></script>
   <script type="text/javascript" src={% static 'js/recruiter.js' %}></script>
-  <script type="text/javascript" src={% static 'js/recruiter_footer.js' %}></script>
+  <script type="text/javascript" src={% static 'js/main_footer.js' %}></script>
 {% endblock %}

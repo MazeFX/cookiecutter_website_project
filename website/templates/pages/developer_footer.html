@@ -1,0 +1,79 @@
+{% comment %}
+  File: recruiter_footer.html
+  Creator: MazeFX
+  Date: 14-7-2016
+
+  Footer for use in recruiter page.
+{% endcomment %}
+
+{% load staticfiles %}
+
+<footer class="footer-distributed" id="recruiter-footer">
+  <div class="row">
+
+    <div class="col-xs-6 col-md-4">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="footer-company-about-wrapper">
+            <p class="footer-company-about">
+              <span>Links</span>
+              De code voor deze website is <br/>beschikbaar op mijn github account.
+            </p>
+            <div class="footer-icons">
+              <a href="mailto:nickgeense@gmail.com"><i class="fa fa-envelope"></i></a>
+              <a href="http://nl.linkedin.com/in/thomasgeense"><i class="fa fa-linkedin"></i></a>
+              <a href="https://github.com/MazeFX/cookiecutter_website_project"><i class="fa fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+
+    <div class="col-xs-6 col-md-4">
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-6 col-no-padding">
+          <div class="col-xs-6">
+            <div class="footer-logo">
+              <div class="img-thumbnail-wrapper first footer-logo-wrapper">
+                <img class="img-responsive img-thumbnail" src={% static 'images/github-logo-black.png' %} alt="Github" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="footer-logo">
+              <div class="img-thumbnail-wrapper second footer-logo-wrapper">
+                <img class="img-responsive img-thumbnail" src={% static 'images/django-logo.png' %} alt="Django" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-no-padding">
+          <div class="col-xs-6">
+            <div class="footer-logo">
+              <div class="img-thumbnail-wrapper third footer-logo-wrapper">
+                <img class="img-responsive img-thumbnail" src={% static 'images/12-factor-black.png' %} style="padding: 4px;" alt="12-factor" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="footer-logo">
+              <div class="img-thumbnail-wrapper second footer-logo-wrapper">
+                <img class="img-responsive img-thumbnail" src={% static 'images/bootstrap-logo.png' %} alt="Bootstrap" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-xs-0 col-md-4"></div>
+  </div>
+
+</footer>

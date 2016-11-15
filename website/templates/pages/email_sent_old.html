@@ -1,7 +1,7 @@
 {# DOCS - Write some documentation and tags #}
 
 {% extends "base.html" %}
-{% load staticfiles sitetree %}
+{% load staticfiles %}
 
 {% block title %}
   Email Verstuurd
@@ -12,22 +12,11 @@
 {% endblock %}
 
 {% block css-addin %}
-  <link rel="stylesheet" type="text/css" href={% static 'css/developers.css' %} />
+  <link rel="stylesheet" type="text/css" href={% static 'css/recruiter.css' %} />
 {% endblock %}
 
 {% block header %}
-  <header id="header">
-    <nav class="custom-navbar">
-      <div class="navbar-inner collapse" id="exCollapsingNavbar">
-        {% sitetree_menu from "menu-tree" include "trunk" template "pages/menu_bootstrap.html" %}
-      </div>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </nav>
+  <header class="navbar-inverse" id="recruiter-header">
 
     <!-- particles.js container -->
     <div id="particles-js"></div>
@@ -42,17 +31,17 @@
 {% endblock %}
 
 {% block content %}
-  <div class="row spacer-row color-orange"></div>
-  <div class="row main-row color-orange text-color-white">
+  <div class="row spacer-row color-blue"></div>
+  <div class="row main-row">
     <div class="container">
 
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-xs-12 col-md-8 text-center">
+        <div class="col-xs-12 col-md-8 text-center color-green">
           <div class="row">
             <div class="col-xs-12">
             <h1>Uw email is verstuurd.</h1>
-            <h3>Wij nemen zo snel mogelijk contact met u op.</h3>
+            <h3>Ik neem zo snel mogelijk contact met u op.</h3>
             </div>
           </div>
           <div class="row">
@@ -73,13 +62,11 @@
 {% endblock %}
 
 {% block footer %}
-    {% include 'pages/developer_footer.html' %}
+    {% include 'pages/recruiter_footer.html' %}
 {% endblock %}
 
 {% block js-addin %}
-  <script type="text/javascript" src={% static 'js/jquery.min.js' %}></script>
   <script src={% static 'js/particles.js' %}></script>
   <script src={% static 'js/app.js' %}></script>
-  <script type="text/javascript" src={% static 'js/recruiter.js' %}></script>
   <script type="text/javascript" src={% static 'js/main_footer.js' %}></script>
 {% endblock %}

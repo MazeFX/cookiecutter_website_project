@@ -8,6 +8,7 @@
  * while keeping the height variable
  */
 
+// TODO - Rework footer to general site footer
 
 var bumpIt = function() {
       jQuery('#main-wrap').css('margin-bottom', -Math.abs(jQuery('footer').outerHeight()));

@@ -1,0 +1,36 @@
+{% comment %}
+  File: recruiter_header.html
+  Creator: MazeFX
+  Date: 12-7-2016
+
+  Header for whole website.
+{% endcomment %}
+
+{% load sitetree %}
+
+<header id="header">
+  <nav class="custom-navbar">
+    <div class="navbar-inner collapse" id="exCollapsingNavbar">
+      {% sitetree_menu from "menu-tree" include "trunk" template "pages/menu_bootstrap.html" %}
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </nav>
+
+
+
+  <!-- particles.js container -->
+  <div id="particles-js"></div>
+
+  <div class="container">
+    <div class="align-center text-center" id="header-title">
+        <span id="header-title-begin">IT</span><span id="header-title-end">'s what I develop!</span>
+    </div>
+  </div>
+
+
+</header>

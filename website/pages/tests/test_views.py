@@ -18,7 +18,7 @@ from django.template.loader import render_to_string, get_template
 from django.utils.html import escape
 
 
-from website.pages.views import home_page, home_page_old, contact_page, email_sent_page
+from website.pages.views import home_page, home_page_old, coming_soon_page, contact_page, email_sent_page
 from website.pages.forms import ContactForm, EMPTY_ITEM_ERROR
 
 
@@ -49,7 +49,7 @@ class HomePageOldTest(TestCase):
 
     def test_home_page_old_returns_correct_html(self):
         request = HttpRequest()
-        response = home_page(request)
+        response = home_page_old(request)
         expected_html = render_to_string('pages/home_old.html')
 
         self.assertEqual(response.content.decode(), expected_html)
@@ -58,6 +58,25 @@ class HomePageOldTest(TestCase):
         response = self.client.get('/home_old/')
 
         self.assertTemplateUsed(response, 'pages/home_old.html')
+
+
+class ComingSoonTest(TestCase):
+
+    def test_coming_soon_url_resolves_to_coming_soon_page_view(self):
+        found = resolve('/portfolio/coming_soon/')
+        self.assertEqual(found.func, coming_soon_page)
+
+    def test_coming_soon_page_returns_correct_html(self):
+        request = HttpRequest()
+        response = coming_soon_page(request)
+        expected_html = render_to_string('pages/coming_soon.html')
+
+        self.assertEqual(response.content.decode(), expected_html)
+
+    def test_coming_soon_page_renders_coming_soon_template(self):
+        response = self.client.get('/portfolio/coming_soon/')
+
+        self.assertTemplateUsed(response, 'pages/coming_soon.html')
 
 
 class ContactTest(TestCase):

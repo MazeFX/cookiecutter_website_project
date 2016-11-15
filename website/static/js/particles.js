@@ -380,7 +380,7 @@ var pJS = function(tag_id, params){
     if(this.shape == 'image'){
       var sh = pJS.particles.shape;
       if(sh.image.src instanceof Array) {
-        var img_selected = sh.image.src[Math.floor(Math.random() * sh.image.src.length)];
+        var img_selected = sh.image.src[Math.round(Math.random() * (sh.image.src.length - 1))];
       }else{
         var img_selected = sh.image.src;
       }
@@ -479,13 +479,9 @@ var pJS = function(tag_id, params){
         if(pJS.tmp.img_type == 'svg'){
           var img_obj = p.img.obj;
         }else{
-          var flag = this.img.src.indexOf('i-particle')
-          if( flag != -1) {
-            var img_selected = pJS.tmp.img_obj[0];
-          }else{
-            var img_selected = pJS.tmp.img_obj[1];
-          }
-          var img_obj = img_selected;
+          var sh = pJS.particles.shape;
+          var index = sh.image.src.indexOf(this.img.src);
+          var img_obj = pJS.tmp.img_obj[index];;
         }
 
         if(img_obj){

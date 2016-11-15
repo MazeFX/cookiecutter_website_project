@@ -16,6 +16,11 @@
   <!-- Meta for Chrome Android -->
   <meta name="theme-color" content="#92cab1">
   <link rel="icon" sizes="192x192" href="{% static 'images/icon-192x192.png' %}">
+
+  <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
 {% endblock %}
 
 {% block css-addin %}
@@ -257,15 +262,15 @@
 {% endblock %}
 
 {% block footer %}
-    {% include 'pages/recruiter_footer.html' %}
+    {% include 'pages/recruiter_footer_old.html' %}
 {% endblock %}
 
 {% block js-addin %}
   <script type="text/javascript" src={% static 'js/jquery.min.js' %}></script>
   <script src={% static 'js/particles.js' %}></script>
-  <script src={% static 'js/app.js' %}></script>
+  <script src={% static 'js/recruiter-app.js' %}></script>
   <script type="text/javascript" src={% static 'js/jquery.event.frame.js' %} defer></script>
   <script type="text/javascript" src={% static 'js/jquery.parallax.min.js' %}></script>
   <script type="text/javascript" src={% static 'js/recruiter.js' %}></script>
-  <script type="text/javascript" src={% static 'js/recruiter_footer.js' %}></script>
+  <script type="text/javascript" src={% static 'js/main_footer.js' %}></script>
 {% endblock %}
