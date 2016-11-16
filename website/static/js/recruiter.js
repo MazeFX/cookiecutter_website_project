@@ -21,14 +21,28 @@ jQuery(document).ready(function(){
         .trigger({ type: 'freeze', x: 0.5, y: 0.5, decay: 0 });
     }
 
+    function menuToggle (toggle) {
+        if (toggle) {
+            var $dropDownMenuWidth = jQuery('.dropdown-menu').width() + 6;
+            jQuery('.dropdown-menu-wrapper').width($dropDownMenuWidth);
+        } else {
+            jQuery('.dropdown-menu-wrapper').width(0);
+        }
+    }
+
+    var toggle = false;
+    jQuery('.dropdown').click(
+        function() {
+            toggle = !toggle;
+            menuToggle(toggle);
+        }
+    );
 
     jQuery('.dropdown').hover(
         function() {
-            var $dropDownMenuWidth = jQuery('.dropdown-menu').width() + 6;
-            jQuery('.dropdown-menu-wrapper').width($dropDownMenuWidth);
-
+            menuToggle(true);
         }, function() {
-            jQuery('.dropdown-menu-wrapper').width(0);
+            menuToggle(false);
         }
     );
 
@@ -36,8 +50,18 @@ jQuery(document).ready(function(){
         function() {
             jQuery('.navbar-toggler').trigger('click');
             jQuery('.dropdown-menu-wrapper').height(jQuery('.dropdown-menu').height() + 6);
+
         }, function() {
             jQuery('.navbar-toggler').trigger('click');
+        }
+    );
+
+    jQuery('.navbar-toggler').click(
+        function() {
+            if (toggle) {
+                toggle = !toggle;
+                menuToggle(toggle);
+            }
         }
     );
 

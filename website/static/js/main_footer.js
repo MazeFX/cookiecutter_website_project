@@ -25,5 +25,6 @@ setInterval(function() {
   if(didResize) {
     didResize = false;
     bumpIt();
+    jQuery('.dropdown-menu-wrapper').height(jQuery('.dropdown-menu').height() + 6);
   }
 }, 250);
