@@ -21,14 +21,29 @@ jQuery(document).ready(function(){
         .trigger({ type: 'freeze', x: 0.5, y: 0.5, decay: 0 });
     }
 
+    function menuToggle (toggle) {
+        var $dropDownMenuWidth = jQuery('.dropdown-menu').width() + 6;
+
+        if (toggle) {
+            jQuery('.dropdown-menu-wrapper').width($dropDownMenuWidth);
+        } else {
+            jQuery('.dropdown-menu-wrapper').width(0);
+        }
+    }
+
+    var toggle = false;
+    jQuery('.dropdown').click(
+        function() {
+            toggle = !toggle;
+            menuToggle(toggle);
+        }
+    );
 
     jQuery('.dropdown').hover(
         function() {
-            var $dropDownMenuWidth = jQuery('.dropdown-menu').width() + 6;
-            jQuery('.dropdown-menu-wrapper').width($dropDownMenuWidth);
-
+            menuToggle(true);
         }, function() {
-            jQuery('.dropdown-menu-wrapper').width(0);
+            menuToggle(false);
         }
     );
 

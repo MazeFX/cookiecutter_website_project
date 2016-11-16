@@ -90,9 +90,20 @@
   color: #FF9800;
   text-align: center; }
 
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:focus {
+  color: #FF9800;
+  background-color: #fff; }
+
+.dropdown-menu > .active > a:hover {
+  color: #FF9800;
+  background-color: #eee; }
+
+.dropdown-menu .nav-link:first-of-type.active > a,
 .dropdown-menu .nav-link:first-of-type > a:hover {
   border-top-left-radius: 0.8em; }
 
+.dropdown-menu .nav-link:last-of-type.active > a,
 .nav-link:last-of-type > a:hover {
   border-bottom-left-radius: 0.8em; }
 
@@ -353,6 +364,9 @@ p {
   padding: 30px 60px;
   min-height: 145px; }
 
+@media (max-width: 440px) {
+  .footer-distributed {
+    padding: 20px 20px; } }
 .footer-logo-wrapper .img-thumbnail {
   padding: 0; }
 
