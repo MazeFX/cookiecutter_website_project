@@ -44,6 +44,9 @@
   right: 2.5em;
   z-index: 10; }
 
+@media (max-width: 440px) {
+  .custom-navbar {
+    right: 1em; } }
 .navbar-toggler {
   float: right;
   background-color: #FF9800;

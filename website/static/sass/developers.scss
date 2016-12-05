@@ -100,6 +100,12 @@ $red: #b94a48;
   z-index: 10;
 }
 
+@media (max-width: 440px) {
+  .custom-navbar {
+    right: 1em;
+  }
+}
+
 .navbar-toggler {
   float: right;
   background-color: $developer-orange;

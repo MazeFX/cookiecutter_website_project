@@ -66,6 +66,7 @@ jQuery(document).ready(function(){
         jQuery.each(dropDown, function(index, element) {
             var hammertime = new Hammer(element);
             hammertime.on('tap', function(event) {
+                jQuery('.dropdown-menu-wrapper').height(jQuery('.dropdown-menu').height() + 6);
                 toggle = !toggle;
                 menuToggle(toggle);
             });
