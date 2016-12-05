@@ -9,6 +9,27 @@
 
 jQuery(document).ready(function(){
 
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
     if ( $( "#parallax" ).length ) {
         jQuery('#parallax .parallax-layer')
             .parallax({
@@ -31,31 +52,6 @@ jQuery(document).ready(function(){
     }
 
     var toggle = false;
-    jQuery('.dropdown').click(
-        function() {
-            toggle = !toggle;
-            menuToggle(toggle);
-        }
-    );
-
-    jQuery('.dropdown').hover(
-        function() {
-            menuToggle(true);
-        }, function() {
-            menuToggle(false);
-        }
-    );
-
-    jQuery('.navbar-toggler').hover(
-        function() {
-            jQuery('.navbar-toggler').trigger('click');
-            jQuery('.dropdown-menu-wrapper').height(jQuery('.dropdown-menu').height() + 6);
-
-        }, function() {
-            jQuery('.navbar-toggler').trigger('click');
-        }
-    );
-
     jQuery('.navbar-toggler').click(
         function() {
             if (toggle) {
@@ -65,11 +61,51 @@ jQuery(document).ready(function(){
         }
     );
 
-    jQuery('#exCollapsingNavbar').hover(
+    if(isMobile.any()) {
+        var dropDown = jQuery('.dropdown');
+        jQuery.each(dropDown, function(index, element) {
+            var hammertime = new Hammer(element);
+            hammertime.on('tap', function(event) {
+                toggle = !toggle;
+                menuToggle(toggle);
+            });
+        });
+    } else {
+        jQuery('.dropdown').click(
         function() {
-        }, function() {
-            jQuery('.navbar-toggler').trigger('click');
-        }
-    );
+            toggle = !toggle;
+            menuToggle(toggle);
+            }
+        );
+
+        jQuery('.dropdown').hover(
+            function() {
+                menuToggle(true);
+            }, function() {
+                menuToggle(false);
+            }
+        );
+
+        jQuery('.navbar-toggler').hover(
+            function() {
+                jQuery('.navbar-toggler').trigger('click');
+                jQuery('.dropdown-menu-wrapper').height(jQuery('.dropdown-menu').height() + 6);
+
+            }, function() {
+                jQuery('.navbar-toggler').trigger('click');
+            }
+        );
+
+        jQuery('#exCollapsingNavbar').hover(
+            function() {
+            }, function() {
+                jQuery('.navbar-toggler').trigger('click');
+            }
+        );
+
+    }
 });
+
+
+
 
