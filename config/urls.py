@@ -28,6 +28,7 @@ from website.pages import views as page_views
 urlpatterns = [
     url(r'^$', page_views.home_page, name='home'),
     url(r'^home_old', page_views.home_page_old, name='home_old'),
+    url(r'^a-frame/virtual-developers/$', page_views.aFrame_developers, name='aframe-developers'),
     url(r'^portfolio/coming_soon/$', page_views.coming_soon_page, name='coming_soon'),
     url(r'^contact/$', page_views.contact_page, name='contact'),
     url(r'^contact/email_sent/$', page_views.email_sent_page, name='email_sent'),
@@ -50,6 +51,7 @@ if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
     # these url in browser to see how these error pages look like.
     urlpatterns += [
+        url(r'^aframe_test/(?P<num>[0-9]+)/$', page_views.aFrame_test_page, name='aframe'),
         url(r'^400/$', default_views.bad_request, kwargs={'exception': Exception('Bad Request!')}),
         url(r'^403/$', default_views.permission_denied, kwargs={'exception': Exception('Permission Denied')}),
         url(r'^404/$', default_views.page_not_found, kwargs={'exception': Exception('Page not Found')}),

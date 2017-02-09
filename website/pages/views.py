@@ -18,11 +18,14 @@ from website.pages.forms import ContactForm
 def home_page(request):
     return render(request, 'pages/home.html')
 
+
 def home_page_old(request):
     return render(request, 'pages/home_old.html')
 
+
 def coming_soon_page(request):
     return render(request, 'pages/coming_soon.html')
+
 
 def contact_page(request):
     form = ContactForm()
@@ -49,3 +52,13 @@ def contact_page(request):
 
 def email_sent_page(request):
     return render(request, 'pages/email_sent.html')
+
+
+def aFrame_test_page(request, num):
+    page_template_string = 'pages/aframe_test_{}.html'.format(num)
+    return render(request, page_template_string)
+
+
+def aFrame_developers(request):
+    page_template_string = 'pages/virtual_developers.html'
+    return render(request, page_template_string)

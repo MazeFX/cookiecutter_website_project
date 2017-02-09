@@ -33,6 +33,8 @@
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    {% block header-js-addin %}{% endblock %}
+
     {% block css %}
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -54,20 +56,23 @@
         {% include 'pages/main_header.html' %}
       {% endblock %}
 
-      <div class="container">
+      {% block site-content %}
+        <div class="container">
 
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-      </div> <!-- /container -->
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+              {% endfor %}
+          {% endif %}
+        </div> <!-- /container -->
 
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
-      <div id="footer-push"></div>
-    </div>
+        {% block content %}
+          <p>Use this document as a way to quick start any new project.</p>
+        {% endblock content %}
+        <div id="footer-push"></div>
+      {% endblock %}
+      </div>
+
 
     {% block footer %}
       <p>Thanks for visiting my site.</p>

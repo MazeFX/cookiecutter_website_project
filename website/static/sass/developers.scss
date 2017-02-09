@@ -345,8 +345,6 @@ p {
     display: block;
   }
 
-
-
   .content-mail-button {
     width: 100%;
     height: 5em;
@@ -409,7 +407,15 @@ p {
   font-size: 1em;
 }
 
-// Temp Elelements for testing
+// A-Frame page tweaks
+// -----------------------------
+
+a-scene.fullscreen {
+  height: 100%;
+  position: absolute;
+}
+
+// Temp Elements for testing
 
 .img-thumbnail {
   padding: 12px;
@@ -452,6 +458,8 @@ p {
     transform: rotate(0deg);
   }
 }
+
+
 
 // Pure layout elements
 // -----------------------------

@@ -1,0 +1,267 @@
+{% load static %}
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@3.x.x/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.x.x/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.2.5/dist/aframe-extras.min.js"></script>
+    <script src={% static 'a-frame/custom_shapes.js' %}></script>
+    <script src={% static 'a-frame/cursor.js' %}></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <script id="create-lightbulb" type="text/html">
+          <a-entity class="lightbulb"
+            geometry="primitive: sphere; radius: 0.5"
+            material="shader: flat; color: #424242">
+            <a-animation attribute="material.color" begin="light-on" from="#424242" to="#FFFF8D" dur="300"></a-animation>
+            <a-animation attribute="material.color" begin="light-off" from="#FFFF8D" to="#424242" dur="100"></a-animation>
+          </a-entity>
+        </script>
+
+        <script id="animate-neon" type="text/html">
+          <a-animation attribute="material.color" begin="light-on" from="#d07b06" to="#ffbc02" dur="100"></a-animation>
+          <a-animation attribute="material.color" begin="light-off" from="#ffbc02" to="#d07b06" dur="100"></a-animation>
+        </script>
+
+        <a-mixin id="transparent" material="transparent: true; opacity: 0"></a-mixin>
+        <a-mixin id="neon" material="shader:flat; color: #d07b06"></a-mixin>
+        <a-mixin id="metal" material="metalness: 1; color: #CFD8DC"></a-mixin>
+
+        <img id="boxTexture" src={% static 'images/a-frame/DevelopersLogo_square.png' %}>
+        <img id="skyTexture" src={% static 'a-frame/Street_View_Coolhaven.jpg' %}>
+        <a-asset-item id="logo-text1-obj" src={% static 'a-frame/models/Developer_Logo_model_text1.obj' %}></a-asset-item>
+        <a-asset-item id="logo-text2-obj" src={% static 'a-frame/models/Developer_Logo_model_text2.obj' %}></a-asset-item>
+        <a-asset-item id="logo-text3-obj" src={% static 'a-frame/models/Developer_Logo_model_text3.obj' %}></a-asset-item>
+        <a-asset-item id="logo-cloud-obj" src={% static 'a-frame/models/Developer_Logo_model_cloud.obj' %}></a-asset-item>
+        <a-asset-item id="logo-outer-obj" src={% static 'a-frame/models/Developer_Logo_model_outer.obj' %}></a-asset-item>
+        <a-asset-item id="text-obj" src={% static 'a-frame/models/3d_text.obj' %}></a-asset-item>
+      </a-assets>
+
+      {# right side of the building #}
+      <a-plane cursor-listener mixin="transparent" class="office" position="-32.29 15 -37.91" height="8" width="20" rotation="0 82 0"></a-plane>
+
+      <a-circle class="arrow-black-hole" position="-32 9 -37.91" rotation="0 82 0" color="black" radius="0.1">
+        <a-animation begin="open" easing="ease-in-out-elastic" attribute="radius"
+                 fill="forwards" from="0.1" to="4" dur="500"></a-animation>
+        <a-animation begin="close" easing="ease-in-out-elastic" attribute="radius"
+                 fill="forwards" from="4" to="0.1" dur="1000"></a-animation>
+      </a-circle>
+
+      <a-box class="arrow-container" mixin="transparent" position="-32.29 9 -37.91" rotation="0 82 0" height="30" depth="39" scale="0.1 0.1 0.1" visible="false">
+        <a-animation begin="fade-in" attribute="visible" to="true" duration="500"></a-animation>
+        <a-animation begin="grow" easing="ease-in-out-elastic" attribute="scale"
+                 fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="500"></a-animation>
+
+        <a-box mixin="transparent" position="0 9.82 14" scale="0.7 0.7 1" rotation="0 90 -20">
+          <a-entity class="arrow-light" position="0 0 -0.5" geometry="primitive: extruded_arrow; height: 2; width: 3; depth: 2" material="shader: flat; color: #4E342E">
+            <a-animation attribute="material.color" begin="light-on" from="#4E342E" to="#FFB74D" dur="100"></a-animation>
+            <a-animation attribute="material.color" begin="light-off" from="#FFB74D" to="#4E342E" dur="100"></a-animation>
+          </a-entity>
+          <a-entity mixin="metal" geometry="primitive: extruded_arrow_2; height: 2; width: 3;"></a-entity>
+
+          <a-entity class="bulb-row-1" template="src: #create-lightbulb" position="-1 0 1.25"></a-entity>
+          <a-entity class="bulb-row-1" template="src: #create-lightbulb" position="-1 0 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-2" template="src: #create-lightbulb" position="-2.37 2 1.25"></a-entity>
+          <a-entity class="bulb-row-2" template="src: #create-lightbulb" position="-2.37 -2 1.25"></a-entity>
+          <a-entity class="bulb-row-2" template="src: #create-lightbulb" position="-2.37 2 -0.25"></a-entity>
+          <a-entity class="bulb-row-2" template="src: #create-lightbulb" position="-2.37 -2 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-3" template="src: #create-lightbulb" position="-3.75 4 1.25"></a-entity>
+          <a-entity class="bulb-row-3" template="src: #create-lightbulb" position="-3.75 -4 1.25"></a-entity>
+          <a-entity class="bulb-row-3" template="src: #create-lightbulb" position="-3.75 4 -0.25"></a-entity>
+          <a-entity class="bulb-row-3" template="src: #create-lightbulb" position="-3.75 -4 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-4" template="src: #create-lightbulb" position="-0.9 4.20 1.25"></a-entity>
+          <a-entity class="bulb-row-4" template="src: #create-lightbulb" position="-0.9 -4.20 1.25"></a-entity>
+          <a-entity class="bulb-row-4" template="src: #create-lightbulb" position="-0.9 4.20 -0.25"></a-entity>
+          <a-entity class="bulb-row-4" template="src: #create-lightbulb" position="-0.9 -4.20 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-5" template="src: #create-lightbulb" position="2 3.75 1.25"></a-entity>
+          <a-entity class="bulb-row-5" template="src: #create-lightbulb" position="2 -3.75 1.25"></a-entity>
+          <a-entity class="bulb-row-5" template="src: #create-lightbulb" position="2 3.75 -0.25"></a-entity>
+          <a-entity class="bulb-row-5" template="src: #create-lightbulb" position="2 -3.75 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-6" template="src: #create-lightbulb" position="4.9 3.30 1.25"></a-entity>
+          <a-entity class="bulb-row-6" template="src: #create-lightbulb" position="4.9 -3.30 1.25"></a-entity>
+          <a-entity class="bulb-row-6" template="src: #create-lightbulb" position="4.9 3.30 -0.25"></a-entity>
+          <a-entity class="bulb-row-6" template="src: #create-lightbulb" position="4.9 -3.30 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-7" template="src: #create-lightbulb" position="7.8 2.85 1.25"></a-entity>
+          <a-entity class="bulb-row-7" template="src: #create-lightbulb" position="7.8 -2.85 1.25"></a-entity>
+          <a-entity class="bulb-row-7" template="src: #create-lightbulb" position="7.8 2.85 -0.25"></a-entity>
+          <a-entity class="bulb-row-7" template="src: #create-lightbulb" position="7.8 -2.85 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-8" template="src: #create-lightbulb" position="9.7 4.25 1.25"></a-entity>
+          <a-entity class="bulb-row-8" template="src: #create-lightbulb" position="9.7 -4.25 1.25"></a-entity>
+          <a-entity class="bulb-row-8" template="src: #create-lightbulb" position="9.7 4.25 -0.25"></a-entity>
+          <a-entity class="bulb-row-8" template="src: #create-lightbulb" position="9.7 -4.25 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-9" template="src: #create-lightbulb" position="11.8 2.9 1.25"></a-entity>
+          <a-entity class="bulb-row-9" template="src: #create-lightbulb" position="11.8 -2.9 1.25"></a-entity>
+          <a-entity class="bulb-row-9" template="src: #create-lightbulb" position="11.8 2.9 -0.25"></a-entity>
+          <a-entity class="bulb-row-9" template="src: #create-lightbulb" position="11.8 -2.9 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-10" template="src: #create-lightbulb" position="13.85 1.55 1.25"></a-entity>
+          <a-entity class="bulb-row-10" template="src: #create-lightbulb" position="13.85 -1.55 1.25"></a-entity>
+          <a-entity class="bulb-row-10" template="src: #create-lightbulb" position="13.85 1.55 -0.25"></a-entity>
+          <a-entity class="bulb-row-10" template="src: #create-lightbulb" position="13.85 -1.55 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-11" template="src: #create-lightbulb" position="15.8 0 1.25"></a-entity>
+          <a-entity class="bulb-row-11" template="src: #create-lightbulb" position="15.8 0 -0.25"></a-entity>
+
+          <a-entity mixin="metal" geometry="primitive: box; width: 1.5; height: 8; depth: 1" position="5.3 -5 0.5"></a-entity>
+          <a-entity mixin="metal" geometry="primitive: box; width: 1.5; height: 6; depth: 1" position="7.55 -9.93 0.5" rotation="0 0 60"></a-entity>
+          <a-entity mixin="metal" geometry="primitive: box; width: 1.5; height: 15; depth: 1" position="16.64 -8.78 0.5" rotation="0 0 110"></a-entity>
+        </a-box>
+      </a-box>
+
+
+      {#  left side of the building  #}
+      <a-plane cursor-listener mixin="transparent" class="office" position="-48 15 -30" height="8" width="29" rotation="0 -8 0"></a-plane>
+
+      <a-circle class="neon-black-hole" position="-40.6 25.1 -28.6" rotation="0 -8 0" color="black" radius="0.1">
+        <a-animation begin="open" easing="ease-in-out-elastic" attribute="radius"
+                 fill="forwards" from="0.1" to="5" dur="500"></a-animation>
+        <a-animation begin="close" easing="ease-in-out-elastic" attribute="radius"
+                 fill="forwards" from="5" to="0.1" dur="1000"></a-animation>
+      </a-circle>
+
+      <a-box mixin="transparent" class="neon-logo-container" position="-40.6 25.1 -27.9" rotation="90 -8 0"
+             geometry="depth: 8; height: 0.60; width: 9" scale="0.1 0.1 0.1" visible="false">
+        <a-animation begin="fade-in" attribute="visible" to="true" duration="500"></a-animation>
+        <a-animation begin="grow" easing="ease-in-out-elastic" attribute="scale"
+                 fill="forwards" from="0.1 0.1 0.1" to="2.8 2.8 2.8" dur="700"></a-animation>
+
+        <a-entity position="-2 0 -1.7" scale="2 2 2">
+          <a-entity class="neon-logo" mixin="neon" obj-model="obj: #logo-outer-obj"
+                    template="src: #animate-neon"></a-entity>
+          <a-entity class="neon-logo" mixin="neon" obj-model="obj: #logo-cloud-obj"
+                    template="src: #animate-neon"></a-entity>
+          <a-entity class="neon-logo" mixin="neon" obj-model="obj: #logo-text1-obj"
+                    template="src: #animate-neon"></a-entity>
+          <a-entity class="neon-logo" mixin="neon" obj-model="obj: #logo-text2-obj"
+                    template="src: #animate-neon"></a-entity>
+          <a-entity class="neon-logo" mixin="neon" obj-model="obj: #logo-text3-obj"
+                    template="src: #animate-neon"></a-entity>
+        </a-entity>
+        <a-box mixin="metal" position="0 -0.2 0" geometry="depth: 4; height: 0.14; width: 4.56"></a-box>
+      </a-box>
+
+      <a-circle class="arrow-black-hole" position="-51 9 -30" rotation="0 -8 0" color="black" radius="0.1">
+        <a-animation begin="open" easing="ease-in-out-elastic" attribute="radius"
+                 fill="forwards" from="0.1" to="4" dur="500"></a-animation>
+        <a-animation begin="close" easing="ease-in-out-elastic" attribute="radius"
+                 fill="forwards" from="4" to="0.1" dur="1000"></a-animation>
+      </a-circle>
+
+      <a-box class="arrow-container" mixin="transparent" position="-51 9 -30" rotation="0 -8 0" height="30" depth="39" scale="0.1 0.1 0.1" visible="false">
+        <a-animation begin="fade-in" attribute="visible" to="true" duration="500"></a-animation>
+        <a-animation begin="grow" easing="ease-in-out-elastic" attribute="scale"
+                 fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="500"></a-animation>
+
+        <a-box mixin="transparent" position="0 9.82 14" scale="0.7 0.7 1" rotation="0 90 -20">
+          <a-entity class="arrow-light" position="0 0 -0.5" geometry="primitive: extruded_arrow; height: 2; width: 3; depth: 2" material="shader: flat; color: #4E342E">
+            <a-animation attribute="material.color" begin="light-on" from="#4E342E" to="#FFB74D" dur="100"></a-animation>
+            <a-animation attribute="material.color" begin="light-off" from="#FFB74D" to="#4E342E" dur="100"></a-animation>
+          </a-entity>
+          <a-entity mixin="metal" geometry="primitive: extruded_arrow_2; height: 2; width: 3;"></a-entity>
+
+          <a-entity class="bulb-row-1" template="src: #create-lightbulb" position="-1 0 1.25"></a-entity>
+          <a-entity class="bulb-row-1" template="src: #create-lightbulb" position="-1 0 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-2" template="src: #create-lightbulb" position="-2.37 2 1.25"></a-entity>
+          <a-entity class="bulb-row-2" template="src: #create-lightbulb" position="-2.37 -2 1.25"></a-entity>
+          <a-entity class="bulb-row-2" template="src: #create-lightbulb" position="-2.37 2 -0.25"></a-entity>
+          <a-entity class="bulb-row-2" template="src: #create-lightbulb" position="-2.37 -2 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-3" template="src: #create-lightbulb" position="-3.75 4 1.25"></a-entity>
+          <a-entity class="bulb-row-3" template="src: #create-lightbulb" position="-3.75 -4 1.25"></a-entity>
+          <a-entity class="bulb-row-3" template="src: #create-lightbulb" position="-3.75 4 -0.25"></a-entity>
+          <a-entity class="bulb-row-3" template="src: #create-lightbulb" position="-3.75 -4 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-4" template="src: #create-lightbulb" position="-0.9 4.20 1.25"></a-entity>
+          <a-entity class="bulb-row-4" template="src: #create-lightbulb" position="-0.9 -4.20 1.25"></a-entity>
+          <a-entity class="bulb-row-4" template="src: #create-lightbulb" position="-0.9 4.20 -0.25"></a-entity>
+          <a-entity class="bulb-row-4" template="src: #create-lightbulb" position="-0.9 -4.20 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-5" template="src: #create-lightbulb" position="2 3.75 1.25"></a-entity>
+          <a-entity class="bulb-row-5" template="src: #create-lightbulb" position="2 -3.75 1.25"></a-entity>
+          <a-entity class="bulb-row-5" template="src: #create-lightbulb" position="2 3.75 -0.25"></a-entity>
+          <a-entity class="bulb-row-5" template="src: #create-lightbulb" position="2 -3.75 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-6" template="src: #create-lightbulb" position="4.9 3.30 1.25"></a-entity>
+          <a-entity class="bulb-row-6" template="src: #create-lightbulb" position="4.9 -3.30 1.25"></a-entity>
+          <a-entity class="bulb-row-6" template="src: #create-lightbulb" position="4.9 3.30 -0.25"></a-entity>
+          <a-entity class="bulb-row-6" template="src: #create-lightbulb" position="4.9 -3.30 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-7" template="src: #create-lightbulb" position="7.8 2.85 1.25"></a-entity>
+          <a-entity class="bulb-row-7" template="src: #create-lightbulb" position="7.8 -2.85 1.25"></a-entity>
+          <a-entity class="bulb-row-7" template="src: #create-lightbulb" position="7.8 2.85 -0.25"></a-entity>
+          <a-entity class="bulb-row-7" template="src: #create-lightbulb" position="7.8 -2.85 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-8" template="src: #create-lightbulb" position="9.7 4.25 1.25"></a-entity>
+          <a-entity class="bulb-row-8" template="src: #create-lightbulb" position="9.7 -4.25 1.25"></a-entity>
+          <a-entity class="bulb-row-8" template="src: #create-lightbulb" position="9.7 4.25 -0.25"></a-entity>
+          <a-entity class="bulb-row-8" template="src: #create-lightbulb" position="9.7 -4.25 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-9" template="src: #create-lightbulb" position="11.8 2.9 1.25"></a-entity>
+          <a-entity class="bulb-row-9" template="src: #create-lightbulb" position="11.8 -2.9 1.25"></a-entity>
+          <a-entity class="bulb-row-9" template="src: #create-lightbulb" position="11.8 2.9 -0.25"></a-entity>
+          <a-entity class="bulb-row-9" template="src: #create-lightbulb" position="11.8 -2.9 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-10" template="src: #create-lightbulb" position="13.85 1.55 1.25"></a-entity>
+          <a-entity class="bulb-row-10" template="src: #create-lightbulb" position="13.85 -1.55 1.25"></a-entity>
+          <a-entity class="bulb-row-10" template="src: #create-lightbulb" position="13.85 1.55 -0.25"></a-entity>
+          <a-entity class="bulb-row-10" template="src: #create-lightbulb" position="13.85 -1.55 -0.25"></a-entity>
+
+          <a-entity class="bulb-row-11" template="src: #create-lightbulb" position="15.8 0 1.25"></a-entity>
+          <a-entity class="bulb-row-11" template="src: #create-lightbulb" position="15.8 0 -0.25"></a-entity>
+
+          <a-entity mixin="metal" geometry="primitive: box; width: 1.5; height: 8; depth: 1" position="5.3 -5 0.5"></a-entity>
+          <a-entity mixin="metal" geometry="primitive: box; width: 1.5; height: 6; depth: 1" position="7.55 -9.93 0.5" rotation="0 0 60"></a-entity>
+          <a-entity mixin="metal" geometry="primitive: box; width: 1.5; height: 15; depth: 1" position="16.64 -8.78 0.5" rotation="0 0 110"></a-entity>
+        </a-box>
+      </a-box>
+
+      <a-sky src="#skyTexture" rotation="0 180 0"></a-sky>
+{#      <a-sky color="#37474F"></a-sky>#}
+
+
+
+      <a-entity rotation="90 0 0" position="5 10 -3" scale="2 2 2">
+        <a-entity position="0.07 0 1.3" mixin="metal" obj-model="obj: #text-obj" scale="0.35 0.1 0.35"></a-entity>
+        <a-entity class="neon-part" mixin="neon" obj-model="obj: #logo-text1-obj"
+                  template="src: #animate-neon"></a-entity>
+        <a-entity class="neon-part" mixin="neon" obj-model="obj: #logo-text2-obj"
+                  template="src: #animate-neon"></a-entity>
+        <a-entity class="neon-part" mixin="neon" obj-model="obj: #logo-text3-obj"
+                  template="src: #animate-neon"></a-entity>
+      </a-entity>
+
+      <a-entity position="0 2.2 4">
+        <a-entity camera look-controls>
+          <a-cursor id="cursor" material="color: white"
+            event-set__1="_event: mouseenter; color: orange"
+            event-set__2="_event: mouseleave; color: white"
+            raycaster="objects: .office" fuse="true" fuseTimeout="500">
+            <a-animation begin="click" easing="ease-in" attribute="scale"
+                 fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+            <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                 fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+          </a-cursor>
+        </a-entity>
+      </a-entity>
+
+    </a-scene>
+
+    <!-- Latest JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script src={% static 'a-frame/arrow_sign.js' %} type="text/javascript">
+    </script>
+  </body>
+</html>
