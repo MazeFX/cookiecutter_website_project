@@ -295,6 +295,10 @@ p {
 .form-control {
   font-size: 1em; }
 
+a-scene.fullscreen {
+  height: 100%;
+  position: absolute; }
+
 .img-thumbnail {
   padding: 12px; }
 
